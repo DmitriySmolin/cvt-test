@@ -1,0 +1,39 @@
+@import "./components/reset";
+
+$color1: #A1A1A1;
+$color2: #00A3FF;
+$color3: #FF0000;
+$color4: #FFC803;
+$color5: #DF0000;
+$color6: #1F4766;
+$color7: #1400FFl;
+$color8: #00CA51;
+$color9: #008BDA;
+$color10: #F7F7F7;
+
+@font-face {
+  font-family: "Muller-Regular";
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url("../fonts/Montserrat-Medium.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../fonts/Montserrat-Bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+}
+
+
+

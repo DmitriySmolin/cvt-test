@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './styles/index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './components/app';
+import RickandmortyService from './services/rickandmorty-service';
+import {Provider} from 'react-redux';
+import store from './store';
+import ErrorBoundry from './components/error-boundry';
+import {RickandmortyServiceProvider} from './components/rickandmorty-service-context';
+
+const rickandmortyService = new RickandmortyService();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ErrorBoundry>
+        <RickandmortyServiceProvider value={rickandmortyService}>
+          <App/>
+        </RickandmortyServiceProvider>
+      </ErrorBoundry>
+    </Provider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
