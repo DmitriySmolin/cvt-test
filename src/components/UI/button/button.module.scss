@@ -1,0 +1,45 @@
+@import "src/styles/components/variable";
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  margin-right: 15px;
+  font-size: 12px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:active {
+  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
+}
+
+.button:disabled {
+  background: #ccc;
+  color: #000;
+  cursor: not-allowed;
+}
+
+.dark {
+  background-color: $color11;
+}
+
+.dark:hover {
+  background-color: $color6;
+}
+
+.outline-dark {
+  border-color: $color11;
+  background-color: $color12;
+  color: $color11;
+}
+
+.outline-dark:hover {
+  background-color: $color13;
+}

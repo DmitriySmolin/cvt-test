@@ -1,4 +1,6 @@
-import initialState from './initialState';
+const initialState = {
+  token: null
+};
 
 
 const reducer = (state = initialState, action) => {

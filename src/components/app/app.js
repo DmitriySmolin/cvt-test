@@ -11,7 +11,7 @@ import EpisodesList from '../episodes-list';
 
 
 const App = () => {
-  return <main role="main" className="container">
+  return <div className="container">
     <BrowserRouter>
       <Header/>
       <Routes>
@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/episodes" element={<EpisodesList/>}/>
       </Routes>
     </BrowserRouter>
-  </main>;
+  </div>;
 };
 
 export default App;
