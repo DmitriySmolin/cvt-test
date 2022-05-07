@@ -3,16 +3,16 @@ import classes from './button.module.scss'
 
 const Button = props => {
   const cls = [
+    classes[props.width],
+    classes[props.height],
     classes.button,
     classes[props.type],
-    props.hover
   ]
 
   return (
     <button
       onClick={props.onClick}
       className={cls.join(' ')}
-      disabled={props.disabled}
     >
       {props.children}
     </button>

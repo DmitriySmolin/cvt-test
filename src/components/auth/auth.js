@@ -1,10 +1,11 @@
 import React from 'react';
-import classes from './auth.module.scss';
-
+import './auth.scss';
+import {Navigate} from 'react-router-dom';
 import Button from '../UI/button';
 import Input from '../UI/input';
 import {connect} from 'react-redux';
 import {actionAuth} from '../../redux/actions/action-auth';
+import Modal from '../UI/modal';
 
 
 function validateEmail(email) {
@@ -17,14 +18,17 @@ class Auth extends React.Component {
 
   state = {
     isFormValid: false,
+    remember: false,
     formControls: {
       email: {
         value: '',
         type: 'email',
-        label: 'Email',
+        placeholder: 'Введите E-mail',
         errorMessage: 'Введите корректный email',
         valid: false,
         touched: false,
+        required: true,
+        pattern: '([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})',
         validation: {
           required: true,
           email: true
@@ -33,21 +37,26 @@ class Auth extends React.Component {
       password: {
         value: '',
         type: 'password',
-        label: 'Password',
+        placeholder: 'Введите пароль',
         errorMessage: 'Введите корректный пароль',
         valid: false,
         touched: false,
+        required: true,
         validation: {
           required: true,
           minLength: 6
         }
-      }
+      },
+      checkbox: {
+        type: 'checkbox',
+        remember: false
+      },
     }
   };
 
   loginHandler = () => {
-    const {email, password} = this.state.formControls;
-    this.props.auth(email.value, password.value, true);
+    const {formControls: {email, password}, remember} = this.state;
+    this.props.auth(email.value, password.value, true, remember);
   };
 
   registerHandler = () => {
@@ -82,10 +91,10 @@ class Auth extends React.Component {
   };
 
   onChangeHandler = (event, controlName) => {
-
     const formControls = {...this.state.formControls};
     const control = {...formControls[controlName]};
 
+    control.remember = event.target.checked;
     control.value = event.target.value;
     control.touched = true;
     control.valid = this.validateControl(control.value, control.validation);
@@ -97,8 +106,11 @@ class Auth extends React.Component {
       isFormValid = formControls[name].valid && isFormValid;
     });
 
-    this.setState({formControls, isFormValid});
+    this.setState({
+      formControls, isFormValid, remember: event.target.checked
+    });
   };
+
 
   renderInputs() {
     const {formControls} = this.state;
@@ -108,37 +120,51 @@ class Auth extends React.Component {
       return <Input
         key={controlName + index}
         type={control.type}
+        placeholder={control.placeholder}
+        required={control.required}
+        pattern={control.pattern}
         value={control.value}
         valid={control.valid}
         touched={control.touched}
         label={control.label}
         shouldValidate={!!control.validation}
         errorMessage={control.errorMessage}
+        remeber={control.remember}
         onChange={event => this.onChangeHandler(event, controlName)}
       />;
     });
 
   }
 
+
   render() {
-    return <div className={classes.auth}>
-      <div>
-        <h1 className="">Вход</h1>
-        <form className={classes.authForm} onSubmit={this.submitHandler}>
-          {this.renderInputs()}
-          <Button type="btn-dark" onClick={this.loginHandler} disabled={!this.state.isFormValid}>Войти</Button>
-          <Button type="btn-dark" onClick={this.registerHandler} disabled={!this.state.isFormValid}>Зарегистрировать</Button>
-        </form>
-      </div>
-    </div>;
+    return <React.Fragment>
+      {this.props.isAuth ? <Navigate to="/"/>
+        : <Modal>
+          <form className="auth-form" onSubmit={this.submitHandler}>
+            <div className="auth-form__title">Авторизация</div>
+            {this.renderInputs()}
+            <Button type="dark" onClick={this.loginHandler}>Войти</Button>
+            {this.props.error?.message && <span className="error-message d-flex justify-content-center">{this.props.error.message}</span>}
+          </form>
+        </Modal>}
+    </React.Fragment>;
+
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
 
+const mapStateToProps = (state) => {
   return {
-    auth: (email, password, isLogin) => dispatch(actionAuth(email, password, isLogin))
+    isAuth: !!state.auth.token,
+    error: state.auth.error
   };
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    auth: (email, password, isLogin, remember) => dispatch(actionAuth(email, password, isLogin, remember))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

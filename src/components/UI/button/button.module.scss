@@ -10,6 +10,9 @@
   font-size: 12px;
   font-family: "Montserrat-Medium";
   font-weight: 500;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center
 }
 
 .button:focus {
@@ -42,4 +45,12 @@
 
 .outline-dark:hover {
   background-color: $color13;
+}
+
+.header-button-register {
+  width: 188px;
+}
+
+.header-button-login,.header-button-logout {
+  width: 123px;
 }

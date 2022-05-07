@@ -1,6 +1,6 @@
 @import "src/styles/components/variable";
 
-.register {
+.auth {
   display: flex;
   justify-content: center;
   padding-top: 100px;
@@ -8,13 +8,13 @@
   width: 100%;
 }
 
-.register > div {
+.auth > div {
   width: 100%;
   max-width: 600px;
   padding: 0 20px;
 }
 
-.register-form__title {
+.auth-form__title {
   text-align: center;
   color: $color11;
   font-size: 36px;
@@ -24,14 +24,15 @@
 }
 
 
-.register-form {
+.auth-form {
   margin: 0 auto;
   background: $color10;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
   padding: 30px 20px;
   border-radius: 5px;
   width: 120%;
-  height: 637px;
+  height: 445px;
+  max-width: 400px;
 }
 
 .error-message {
@@ -44,7 +45,7 @@
   color: $color8;
 }
 
-.register-form button {
+.auth-form button {
   margin: 50px auto;
   margin-bottom: 0;
   display: flex;
@@ -57,7 +58,7 @@
 }
 
 @media (max-width: 768px) {
-  .register-form{
+  .auth-form{
     width: 100%;
   }
 }

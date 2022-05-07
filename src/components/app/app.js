@@ -8,25 +8,66 @@ import {AboutPage, FavoritePage, MainPage} from '../pages';
 import CharactersList from '../characters-list';
 import LocationsList from '../locations-list';
 import EpisodesList from '../episodes-list';
+import {connect} from 'react-redux';
+import Logout from '../logout';
+import {actionAutoLogin} from '../../redux/actions/action-auth';
 
 
-const App = () => {
-  return <div className="container">
-    <BrowserRouter>
-      <Header/>
-      <Routes>
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.autoLogin();
+  }
+
+  render() {
+    let routes = <Routes>
+      <Route path="/" element={<MainPage/>}/>
+      <Route path="/main" element={<MainPage/>}/>
+      <Route path="/auth" element={<Auth/>}/>
+      <Route path="/register" element={<Register/>}/>
+      <Route path="/logout" element={<Logout/>}/>
+      <Route path="/about" element={<AboutPage/>}/>
+      <Route path="/characters" element={<CharactersList/>}/>
+      <Route path="/locations" element={<LocationsList/>}/>
+      <Route path="/episodes" element={<EpisodesList/>}/>
+    </Routes>;
+
+    if (this.props.isAuth) {
+      routes = <Routes>
         <Route path="/" element={<MainPage/>}/>
         <Route path="/main" element={<MainPage/>}/>
-        <Route path="/auth" element={<Auth/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/auth" element={<Auth/>}/>
+        <Route path="/logout" element={<Logout/>}/>
         <Route path="/favorites" element={<FavoritePage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
         <Route path="/characters" element={<CharactersList/>}/>
         <Route path="/locations" element={<LocationsList/>}/>
         <Route path="/episodes" element={<EpisodesList/>}/>
-      </Routes>
-    </BrowserRouter>
-  </div>;
+      </Routes>;
+
+    }
+
+    return <div className="container">
+      <BrowserRouter>
+        <Header/>
+        {routes}
+      </BrowserRouter>
+    </div>;
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    isAuth: !!state.auth.token
+  };
 };
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    autoLogin: () => dispatch(actionAutoLogin())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+;

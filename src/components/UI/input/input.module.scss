@@ -1,5 +1,7 @@
+@import "src/styles/components/variable";
+
 .input {
-  margin-bottom: 15px;
+  margin-bottom: 35px;
 }
 
 .input label {
@@ -10,22 +12,51 @@
 }
 
 .input input {
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 12px;
   display: block;
   box-sizing: border-box;
-  border: 1px solid #bebebe;
+  border: 1px solid $color1;
   padding: 7px;
-  margin: 0 0 5px;
   width: 100%;
+  height: 36px;
   outline: none;
   transition: all 300ms ease-in-out;
+  border-radius: 5px;
+
 }
 
-.input span{
-  color:#DF0000;
+.input span {
+  color: $color3;
   font-size: 12px;
   font-weight: bold;
 }
 
-.input.invalid label {
-  color: #DF0000;
+.error  {
+  border: 1px solid $color3 !important;
+  border-radius: 5px;
 }
+
+
+.checkbox {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox > input {
+  width: auto;
+  padding: 0px;
+  margin: 0px;
+  font-size: 1px;
+}
+
+.checkbox span {
+  font-family: "Montserrat-Medium";
+  font-weight: bold;
+  font-size: 14px;
+  color: $color11;
+}
+
