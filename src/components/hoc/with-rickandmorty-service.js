@@ -1,6 +1,6 @@
 import React from 'react';
-import {RickandmortyServiceConsumer} from '../bookstore-service-context';
 
+import {RickandmortyServiceConsumer} from '../rickandmorty-service-context'
 const withRickandmortyService = () => (Wrapped) => {
   return (props) => {
     return <RickandmortyServiceConsumer>

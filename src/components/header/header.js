@@ -48,14 +48,14 @@ const Header = (props) => {
           <img src={logo} className="d-inline-block align-top" alt="logo" loading="lazy"/>
         </NavLink>
       </div>
-      <div className="col-lg-5 col-md-6 col-sm-12 col-xs-2 d-flex justify-content-center">
+      <div className="col-lg-5 col-md-6 col-sm-12 col-xs-2 d-flex ">
         <nav className="my-2 my-md-0 mr-md-3 navbar-collapse">
-          <ul className="nav flex-md-row flex-column align-items-center">
+          <ul className="nav flex-md-row flex-column align-items-center ">
             {renderLinks(links)}
           </ul>
         </nav>
       </div>
-      <div className="col-lg-5 col-md-4 col-sm-12 d-flex flex-md-row justify-content-lg-end flex-column align-items-center  gap-3">
+      <div className="col-lg-5 col-md-4 col-sm-12 d-flex flex-md-row justify-content-lg-end justify-content-md-end flex-column align-items-center gap-3 ">
         {!props.isAuth
           ?
           <NavLink to="/register">

@@ -19,7 +19,17 @@ const Input = props => {
 
   return (
     <div className={cls.join(' ')}>
-      <input className={isInvalid(props) && props.value !== '' ? classes.error : '' } type={inputType} placeholder={props.placeholder} required={props.required} pattern={props.pattern} id={htmlFor} value={props.value} checked={props.remember} onChange={props.onChange}/>
+      <input
+        className={isInvalid(props) && props.value !== '' ? classes.error : ''}
+        type={inputType}
+        placeholder={props.placeholder}
+        required={props.required}
+        pattern={props.pattern}
+        id={htmlFor}
+        value={props.value}
+        checked={props.remember}
+        onChange={props.onChange}
+      />
       {props.type === 'checkbox' && <span>Запомнить</span>}
       {isInvalid(props) && props.value !== '' && <span>{props.errorMessage || 'Введите верное значение'}</span>}
     </div>
