@@ -56,6 +56,8 @@ class Auth extends React.Component {
 
   loginHandler = () => {
     const {formControls: {email, password}, remember} = this.state;
+    const {auth} = this.props;
+
     this.props.auth(email.value, password.value, true, remember);
   };
 
@@ -138,14 +140,15 @@ class Auth extends React.Component {
 
 
   render() {
+    const {isAuth, error} = this.props;
     return <React.Fragment>
-      {this.props.isAuth ? <Navigate to="/"/>
+      {isAuth ? <Navigate to="/"/>
         : <Modal>
           <form className="auth-form" onSubmit={this.submitHandler}>
             <div className="auth-form__title">Авторизация</div>
             {this.renderInputs()}
             <Button type="dark" onClick={this.loginHandler}>Войти</Button>
-            {this.props.error?.message && <span className="error-message d-flex justify-content-center">{this.props.error.message}</span>}
+            {error?.message && <span className="error-message d-flex justify-content-center">{error.message}</span>}
           </form>
         </Modal>}
     </React.Fragment>;

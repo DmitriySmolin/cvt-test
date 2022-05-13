@@ -46,10 +46,116 @@
   background-color: $color13;
 }
 
-//.header-button-register {
-//  width: 188px;
-//}
-//
-//.header-button-login,.header-button-logout {
-//  width: 123px;
-//}
+.add-to-favorite-btn {
+  margin: 0 auto;
+  background-color: $color2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  width: 75%;
+  font-family: 'Montserrat-Bold';
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.add-to-favorite-btn:hover {
+  background-color: $color9;
+}
+
+.circle-add-to-favorite-btn {
+  position: relative;
+  z-index: 1;
+  bottom: 258px;
+  right: 22px;
+  margin: 0 auto;
+  background-color: $color2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+  font-size: 15px;
+}
+
+.is-favorite-btn {
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  color: $color8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  width: 75%;
+  font-family: 'Montserrat-Bold';
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.is-favorite-btn img {
+  padding: 0 10px;
+}
+
+.back-btn {
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: none;
+  color: $color11;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  font-size: 18px;
+}
+.back-btn:active{
+  box-shadow: none;
+}
+
+@media (max-width: 1440px) {
+  .add-to-favorite-btn {
+    width: 65%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .add-to-favorite-btn {
+    width: 75%;
+  }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .add-to-favorite-btn {
+    width: 90%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .add-to-favorite-btn {
+    width: 75%;
+  }
+}
+
+@media (max-width: 425px) {
+  .circle-add-to-favorite-btn {
+    bottom: 550px;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .add-to-favorite-btn {
+    width: 85%;
+  }
+}
+
+@media (max-width: 320px) {
+  .add-to-favorite-btn {
+    width: 100%;
+  }
+}

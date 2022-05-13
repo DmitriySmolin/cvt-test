@@ -19,3 +19,8 @@ a.nav-link:hover {
 }
 
 
+@media (max-width: 425px) {
+  .navbar-brand {
+    margin: 0 auto;
+  }
+}

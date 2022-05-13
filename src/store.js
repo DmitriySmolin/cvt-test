@@ -17,7 +17,13 @@ const stringMiddleware = () => (next) => (action) => {
   return next(action);
 };
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, stringMiddleware, logMiddleware));
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware, stringMiddleware, logMiddleware)));
 
 
 export default store;

@@ -7,6 +7,6 @@ import charactersReducer from './characters-reducer';
 export default combineReducers({
   auth:authReducer,
   register:registerReducer,
-  characters:charactersReducer
+  charactersList:charactersReducer
 })
 

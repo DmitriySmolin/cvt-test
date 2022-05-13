@@ -19,6 +19,7 @@ const Input = props => {
 
   return (
     <div className={cls.join(' ')}>
+      <label htmlFor={htmlFor}>{props.label}</label>
       <input
         className={isInvalid(props) && props.value !== '' ? classes.error : ''}
         type={inputType}
@@ -29,6 +30,7 @@ const Input = props => {
         value={props.value}
         checked={props.remember}
         onChange={props.onChange}
+        onKeyPress={props.onKeyPress}
       />
       {props.type === 'checkbox' && <span>Запомнить</span>}
       {isInvalid(props) && props.value !== '' && <span>{props.errorMessage || 'Введите верное значение'}</span>}

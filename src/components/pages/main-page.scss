@@ -1,7 +1,13 @@
-.card {
+
+.main-card {
   border-radius: 19px;
   cursor: pointer;
   transition: 0.4s all;
+}
+
+.card {
+  cursor: pointer;
+  word-wrap: inherit;
 }
 
 .card:hover {

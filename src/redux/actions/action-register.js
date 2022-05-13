@@ -1,9 +1,6 @@
 const actionRegister = (email, password) => {
   return async dispatch => {
-
-
     let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAxJxjeaCWXkupSy9aRd6HML5GEnMddF4U';
-
 
     const res = await fetch(url, {
       method: 'POST',
@@ -20,12 +17,12 @@ const actionRegister = (email, password) => {
       if (res.ok) {
         dispatch(actionRegisterSuccess(true));
         setTimeout(() => {
-          dispatch(actionRegisterSuccess(false))
+          dispatch(actionRegisterSuccess(false));
         }, 5000);
       } else {
         dispatch(actionRegisterFailure(data.error));
         setTimeout(() => {
-          dispatch(actionRegisterFailure(''))
+          dispatch(actionRegisterFailure(''));
         }, 5000);
       }
     } catch (err) {

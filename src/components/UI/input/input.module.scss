@@ -2,13 +2,17 @@
 
 .input {
   margin-bottom: 35px;
+  width: 100%;
 }
 
 .input label {
   margin-bottom: 3px;
   padding: 0;
   display: block;
-  font-weight: bold;
+  font-size: 12px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .input input {
@@ -24,7 +28,6 @@
   outline: none;
   transition: all 300ms ease-in-out;
   border-radius: 5px;
-
 }
 
 .input span {
@@ -33,11 +36,10 @@
   font-weight: bold;
 }
 
-.error  {
+.error {
   border: 1px solid $color3 !important;
   border-radius: 5px;
 }
-
 
 .checkbox {
   display: flex;
@@ -59,4 +61,23 @@
   font-size: 14px;
   color: $color11;
 }
+
+
+
+@media (max-width: 425px) {
+  .input {
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 

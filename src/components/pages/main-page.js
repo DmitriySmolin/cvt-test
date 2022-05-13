@@ -7,10 +7,10 @@ import {NavLink} from 'react-router-dom';
 
 const MainPage = () => {
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-4 mt-5">
+    <main className="row row-cols-1 row-cols-md-3 g-4 mt-5">
       <NavLink to="/characters">
         <div className="col">
-          <div className="card h-100 p-3">
+          <div className="main-card card h-100 p-3">
             <img src={characterImg} className="card-img-top rounded-3" alt="characters"/>
             <div className="card-body">
               <h5 className="card-title">Персонажи</h5>
@@ -21,7 +21,7 @@ const MainPage = () => {
       </NavLink>
       <NavLink to="/locations">
         <div className="col">
-          <div className="card h-100 p-3">
+          <div className="main-card card h-100 p-3">
             <img src={locationImg} className="card-img-top rounded-3" alt="locations"/>
             <div className="card-body">
               <h5 className="card-title">Локации</h5>
@@ -32,7 +32,7 @@ const MainPage = () => {
       </NavLink>
       <NavLink to="episodes">
         <div className="col">
-          <div className="card h-100 p-3">
+          <div className="main-card card h-100 p-3">
             <img src={episodeImg} className="card-img-top rounded-3" alt="episodes"/>
             <div className="card-body">
               <h5 className="card-title">Эпизоды</h5>
@@ -41,7 +41,7 @@ const MainPage = () => {
           </div>
         </div>
       </NavLink>
-    </div>
+    </main>
   );
 };
 
