@@ -11,6 +11,7 @@ import EpisodesList from '../episodes-list';
 import {connect} from 'react-redux';
 import Logout from '../logout';
 import {actionAutoLogin} from '../../redux/actions/action-auth';
+import CharactersListContainer from '../containers/character-list-container';
 
 
 class App extends React.Component {
@@ -27,7 +28,7 @@ class App extends React.Component {
       <Route path="/register" element={<Register/>}/>
       <Route path="/logout" element={<Logout/>}/>
       <Route path="/about" element={<AboutPage/>}/>
-      <Route path="/characters" element={<CharactersList/>}/>
+      <Route path="/characters" element={<CharactersListContainer/>}/>
       <Route path="/locations" element={<LocationsList/>}/>
       <Route path="/episodes" element={<EpisodesList/>}/>
     </Routes>;
@@ -41,7 +42,7 @@ class App extends React.Component {
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/favorites" element={<FavoritePage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/characters" element={<CharactersList/>}/>
+        <Route path="/characters" element={<CharactersListContainer/>}/>
         <Route path="/locations" element={<LocationsList/>}/>
         <Route path="/episodes" element={<EpisodesList/>}/>
       </Routes>;

@@ -11,6 +11,13 @@ const actionCharactersLoad = (newCharacters) => {
   };
 };
 
+const actionSetQuantityPages = (quantityPages) => {
+  return {
+    type: 'SET_QUANTITY_PAGES',
+    payload: quantityPages
+  };
+};
+
 const actionAddToFavorite = (characters, char) => {
 
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
@@ -22,12 +29,12 @@ const actionAddToFavorite = (characters, char) => {
   };
 };
 
-const actionFavoriteCharactersLoad = () => {
+const actionFavoriteCharactersLocalStorageLoad = () => {
 
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
 
   return {
-    type: 'CHARACTERS_FAVORITE_LOAD',
+    type: 'CHARACTERS_FAVORITE_LOCAL_STORAGE_LOAD',
     payload: favoriteCharacters
   };
 };
@@ -39,4 +46,4 @@ const actionCharactersError = (error) => {
   };
 };
 
-export {actionCharactersRequest, actionCharactersLoad, actionAddToFavorite, actionFavoriteCharactersLoad,actionCharactersError};
+export {actionCharactersRequest, actionCharactersLoad, actionSetQuantityPages, actionAddToFavorite, actionFavoriteCharactersLocalStorageLoad, actionCharactersError};

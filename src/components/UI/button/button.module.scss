@@ -79,6 +79,10 @@
   font-size: 15px;
 }
 
+.circle-add-to-favorite-btn:hover {
+  background-color: $color9;
+}
+
 .is-favorite-btn {
   margin: 0 auto;
   background-color: transparent;
@@ -111,7 +115,8 @@
   font-weight: 400;
   font-size: 18px;
 }
-.back-btn:active{
+
+.back-btn:active {
   box-shadow: none;
 }
 

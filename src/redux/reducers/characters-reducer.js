@@ -1,6 +1,7 @@
 const initialState = {
   characters: [],
   favoriteCharacters: [],
+  quantityPages: null,
   loading: true,
   error: null
 };
@@ -22,6 +23,11 @@ const charactersReducer = (state = initialState, action) => {
         loading: false,
         error: null
       };
+    case 'SET_QUANTITY_PAGES':
+      return {
+        ...state,
+        quantityPages: action.payload
+      };
     case 'ADD_TO_FAVORITE':
       return {
         ...state,
@@ -29,7 +35,7 @@ const charactersReducer = (state = initialState, action) => {
         loading: false,
         error: null
       };
-    case 'CHARACTERS_FAVORITE_LOAD':
+    case 'CHARACTERS_FAVORITE_LOCAL_STORAGE_LOAD':
       return {
         ...state,
         favoriteCharacters: action.payload,
