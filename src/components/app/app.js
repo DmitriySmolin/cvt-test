@@ -2,16 +2,9 @@ import React from 'react';
 import './app.module.scss';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from '../header';
-import Auth from '../auth';
-import Register from '../register';
-import {AboutPage, FavoritePage, MainPage} from '../pages';
-import CharactersList from '../characters-list';
-import LocationsList from '../locations-list';
-import EpisodesList from '../episodes-list';
 import {connect} from 'react-redux';
-import Logout from '../logout';
 import {actionAutoLogin} from '../../redux/actions/action-auth';
-import CharactersListContainer from '../containers/character-list-container';
+import ROUTES from '../../routes/routes';
 
 
 class App extends React.Component {
@@ -21,38 +14,25 @@ class App extends React.Component {
   }
 
   render() {
-    let routes = <Routes>
-      <Route path="/" element={<MainPage/>}/>
-      <Route path="/main" element={<MainPage/>}/>
-      <Route path="/auth" element={<Auth/>}/>
-      <Route path="/register" element={<Register/>}/>
-      <Route path="/logout" element={<Logout/>}/>
-      <Route path="/about" element={<AboutPage/>}/>
-      <Route path="/characters" element={<CharactersListContainer/>}/>
-      <Route path="/locations" element={<LocationsList/>}/>
-      <Route path="/episodes" element={<EpisodesList/>}/>
-    </Routes>;
 
-    if (this.props.isAuth) {
-      routes = <Routes>
-        <Route path="/" element={<MainPage/>}/>
-        <Route path="/main" element={<MainPage/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/auth" element={<Auth/>}/>
-        <Route path="/logout" element={<Logout/>}/>
-        <Route path="/favorites" element={<FavoritePage/>}/>
-        <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/characters" element={<CharactersListContainer/>}/>
-        <Route path="/locations" element={<LocationsList/>}/>
-        <Route path="/episodes" element={<EpisodesList/>}/>
-      </Routes>;
-
-    }
-
-    return <div className="container">
+    return <div className="container container-md container-xl">
       <BrowserRouter>
         <Header/>
-        {routes}
+        <Routes>
+          {ROUTES.map(({path, element}) => {
+
+            if (this.props.isAuth) {
+              if (path === '/register')
+                return false;
+            } else {
+              if (path === '/favorites')
+                return false;
+            }
+
+            return <Route key={path + Math.random()} path={path} element={element}/>;
+
+          })}
+        </Routes>
       </BrowserRouter>
     </div>;
   }

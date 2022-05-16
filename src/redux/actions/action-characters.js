@@ -46,4 +46,11 @@ const actionCharactersError = (error) => {
   };
 };
 
-export {actionCharactersRequest, actionCharactersLoad, actionSetQuantityPages, actionAddToFavorite, actionFavoriteCharactersLocalStorageLoad, actionCharactersError};
+export {
+  actionCharactersRequest,
+  actionCharactersLoad,
+  actionSetQuantityPages,
+  actionAddToFavorite,
+  actionFavoriteCharactersLocalStorageLoad,
+  actionCharactersError
+};

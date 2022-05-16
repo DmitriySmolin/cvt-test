@@ -1,5 +1,5 @@
 import React from 'react';
-import './characters-list-item.module.scss';
+import './characters-list-item.scss';
 import Button from '../../UI/button';
 import plusIcon from '../../../assets/icons/plus.svg';
 import isFavoriteIcon from '../../../assets/icons/check-green.svg';
@@ -86,7 +86,7 @@ class CharactersListItem extends React.Component {
     );
 
     const gridView = (
-      <div key={id} className="col-md-6 gx-4 gy-2 mb-0">
+      <div key={id} className="col-md-6 gx-4 gy-2 mb-4">
         <div className="card character-card grid-card">
           <div className="row">
             <div className="col-md-4">

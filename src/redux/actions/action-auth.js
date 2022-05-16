@@ -94,4 +94,10 @@ const actionAuthFailure = (error) => {
   };
 };
 
-export {actionAuth, actionAuthSuccess, actionAutoLogout, actionAuthLogout, actionAutoLogin};
+export {
+  actionAuth,
+  actionAuthSuccess,
+  actionAutoLogout,
+  actionAuthLogout,
+  actionAutoLogin
+};

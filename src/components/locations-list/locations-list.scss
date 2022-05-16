@@ -1,10 +1,14 @@
 @import "../../styles/components/variable";
 
-.episode-main .row {
+.location-main .row {
   --bs-gutter-x: 0rem;
 }
 
-.episode-title {
+.location-body {
+  padding: 1rem 1rem;
+}
+
+.location-title {
   font-family: "Montserrat-Bold";
   font-weight: 700;
   font-size: 24px;
@@ -27,74 +31,59 @@
   font-size: 18px;
 }
 
-.episode-card {
+.location-card {
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
   padding: 0;
 }
 
-.grid-card {
-  height: 231px;
-}
-
-.grid-card img {
-  height: 231px;
-}
-
-.episode-card .card-body {
+.location-card .card-body {
   min-height: 191px;
 }
 
-.episode-body {
-  padding: 1rem 1rem;
-}
-
-.episode-icon {
+.location-icon {
   width: 90%;
   height: 100%;
   border-radius: 4px 0px 0px 4px;
 }
 
-.episode-name {
-  display: flex;
-  align-items: center;
+.location-name {
   font-family: "Montserrat-Bold";
   font-weight: 700;
-  font-size: 36px;
+  font-size: 35px;
+  max-width: 422px;
 }
 
-.episode-episode, .episode-air-date, .episode-characters {
+.location-type, .location-dimension, .location-count-characters {
   font-family: Montserrat-Regular;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   color: $color6;
 }
 
-.episode-episode-value, .episode-air-date-value, .episode-characters-value .episode-episode-value {
+
+.location-type-value, .location-dimension-value, .location-count-characters-value {
   font-family: "Montserrat-Medium";
   font-weight: 500;
   font-size: 14px;
 }
 
+.location-count-characters-value {
+  font-size: 36px;
+}
 
 .grid-btn {
   position: relative;
   width: 0;
 }
 
-.episode-btn {
-  justify-content: space-around !important;
-  margin-top: 10px;
+.location-btn button {
+  bottom: 38px;
+  right: 7px;
 }
 
-.episode-btn button:active {
-  box-shadow: none
-}
-
-.episode-btn:active {
-  box-shadow: none;
-}
-
-.is-favorite-icon {
+.is-favorite-location-icon {
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -103,8 +92,8 @@
   max-height: 40px;
   font-size: 15px;
   position: relative;
-  bottom: 258px;
-  right: 20px;
+  bottom: 45px;
+  right: -82px;
 }
 
 .pagination {
@@ -112,7 +101,7 @@
   gap: 14px;
 }
 
-.episode-btn, .page-item, .grid-btn {
+.location-btn, .page-item, .grid-btn {
   -moz-user-select: none;
   -o-user-select: none;
   -khtml-user-select: none;
@@ -201,11 +190,27 @@
   max-height: 5px;
 }
 
+@media (min-width: 1200px) {
+  .location-btn button, .is-favorite-location-icon {
+    right: -84px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .is-favorite-location-icon {
+    right: 7px;
+  }
+}
+
 @media (min-width: 426px) and (max-width: 768px) {
-  .episode-btn {
+  .is-favorite-location-icon {
+    bottom: 38px;
+    right: 7px;
+  }
+  .location-btn {
     margin-top: 13px;
   }
-  .episode-name {
+  .location-name {
     font-size: 16px;
   }
   .grid-card {
@@ -214,9 +219,7 @@
   .grid-card img {
     height: 231px;
   }
-  .episode-race-value, .episode-origin-value,
-  .episode-location-value, .episode-gender-value,
-  .episode-episode-value {
+  .location-type-value, .location-dimension-value, location-count-characters-value {
     font-size: 12px;
   }
 }
@@ -228,10 +231,10 @@
 }
 
 @media (max-width: 425px) {
-  .episode-form, .episode-inputs {
+  .location-form, .location-inputs {
     flex-direction: column;
   }
-  .episode-icon {
+  .location-icon {
     width: 100%;
   }
   .back-btn {
@@ -241,15 +244,20 @@
   .grid-card {
     min-height: 520px;
   }
-  .is-favorite-icon {
-    bottom: 550px;
+  .is-favorite-location-icon {
+    bottom: 90px;
+    right: -349px;
   }
-  .episode-title {
+  .location-btn button {
+    bottom: 90px;
+    right: -184px;
+  }
+  .location-title {
     margin-top: 25px;
     display: flex;
     justify-content: center;
   }
-  .episode-inputs input {
+  .location-inputs input {
     margin-top: 0 !important;
   }
   .view {
@@ -265,7 +273,7 @@
   .card-body {
     padding: 1rem 1rem;
   }
-  .episode-name {
+  .location-name {
     text-align: center;
   }
   .text-xs-center {
@@ -274,63 +282,25 @@
   .mx-sm-2 {
     margin-left: 0 !important;
   }
-  .episode-btn {
-    width: 100%;
-  }
-}
-
-@media (min-width: 1300px) {
-  .episode-btn button {
-    width: 50%;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1199px) {
-  .episode-btn button {
-    width: 70%;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .episode-btn button {
-    width: 60%;
-  }
-}
-
-@media (max-width: 768px) {
-  .episode-btn {
-    width: 38%;
-  }
-  .episode-btn button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 425px) {
-  .episode-name {
-    justify-content: center;
-  }
-  .episode-body > div {
-    justify-content: center;
-  }
-  .episode-btn {
-    width: 70%;
-    bottom: 550px;
-  }
-  .episode-btn button{
+  .location-btn {
     width: 100%;
   }
 }
 
 @media (max-width: 375px) {
-  .episode-btn {
-    width: 90%;
+  .location-btn button {
+    right: -164px;
+  }
+  .is-favorite-location-icon {
+    right: -304px;
   }
 }
 
 @media (max-width: 320px) {
-  .episode-btn {
-    width: 100%;
+  .location-btn button {
+    right: -133px;
+  }
+  .is-favorite-location-icon {
+    right: -250px;
   }
 }
-

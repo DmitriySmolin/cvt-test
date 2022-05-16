@@ -46,7 +46,6 @@ class CharactersList extends React.Component {
     window.removeEventListener('resize', this.resize.bind(this));
   }
 
-
   resize() {
     let currentHideNav = (window.innerWidth <= 450);
     if (currentHideNav !== this.state.hideNav) {
@@ -82,6 +81,20 @@ class CharactersList extends React.Component {
         this.props.charactersLoad(data);
       });
     }
+  };
+
+  addToFavoriteHandler = (id) => {
+
+    const {characters, addToFavorite} = this.props;
+
+    const char = characters.find(char => char.id === id);
+
+    if (char.isFavorite) {
+      return false;
+    }
+
+    char.isFavorite = true;
+    addToFavorite(characters, char);
   };
 
   renderInputs = () => {
@@ -146,21 +159,6 @@ class CharactersList extends React.Component {
           '';
   };
 
-
-  addToFavoriteHandler = (id) => {
-    debugger
-    const {characters, addToFavorite} = this.props;
-
-    const char = characters.find(char => char.id === id);
-
-    if (char.isFavorite) {
-      return false;
-    }
-
-    char.isFavorite = true;
-    addToFavorite(characters, char);
-  };
-
   renderListItemCharacters = () => {
     return this.props.characters.map(char => {
 
@@ -177,7 +175,6 @@ class CharactersList extends React.Component {
       />;
     });
   };
-
 
   renderPagination = () => {
     const {formFilters: {name, race}, status,} = this.state;
