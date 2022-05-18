@@ -21,7 +21,7 @@ export const ROUTES = [
     element: <AboutPage/>,
   },
   {
-    path: '/favorites',
+    path: '/favorites/*',
     element: <FavoritePage/>,
   },
   {

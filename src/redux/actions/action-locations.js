@@ -29,6 +29,30 @@ const actionAddToFavorite = (locations, location) => {
   };
 };
 
+const actionRemoveFromFavorite = (favoriteLocations) => {
+
+  localStorage.setItem('favoriteLocations', JSON.stringify(favoriteLocations));
+
+  let itemsLocalStorage = JSON.parse(localStorage.getItem('favoriteLocations'));
+
+  if (itemsLocalStorage.length === 0) localStorage.removeItem('favoriteLocations');
+
+  return {
+    type: 'REMOVE_FROM_FAVORITE',
+    payload: favoriteLocations
+  };
+};
+
+const actionFilterFavorite = (favoriteLocations) => {
+
+  localStorage.setItem('favoriteLocations', JSON.stringify(favoriteLocations));
+
+  return {
+    type: 'FILTER_FAVORITE_LOCATIONS',
+    payload: favoriteLocations
+  };
+};
+
 const actionFavoriteLocationsLocalStorageLoad = () => {
 
   const favoriteLocations = JSON.parse(localStorage.getItem('favoriteLocations')) || [];
@@ -51,6 +75,8 @@ export {
   actionLocationsLoad,
   actionSetQuantityPages,
   actionAddToFavorite,
+  actionRemoveFromFavorite,
+  actionFilterFavorite,
   actionFavoriteLocationsLocalStorageLoad,
   actionLocationsError
 };

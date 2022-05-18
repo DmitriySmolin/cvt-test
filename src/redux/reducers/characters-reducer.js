@@ -35,6 +35,16 @@ const charactersReducer = (state = initialState, action) => {
         loading: false,
         error: null
       };
+      case 'REMOVE_FROM_FAVORITE':
+        return {
+          ...state,
+          favoriteCharacters: action.payload
+        }
+      case 'FILTER_FAVORITE_LOCATIONS':
+        return {
+          ...state,
+          favoriteCharacters: action.payload
+        }
     case 'CHARACTERS_FAVORITE_LOCAL_STORAGE_LOAD':
       return {
         ...state,

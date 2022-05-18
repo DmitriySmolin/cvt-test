@@ -25,7 +25,7 @@ class App extends React.Component {
               if (path === '/register')
                 return false;
             } else {
-              if (path === '/favorites')
+              if (path === '/favorites/*')
                 return false;
             }
 

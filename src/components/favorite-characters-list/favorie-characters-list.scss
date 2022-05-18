@@ -1,0 +1,270 @@
+@import "../../styles/components/variable";
+
+.character-main .row{
+  --bs-gutter-x: 0rem;
+}
+
+.character-title {
+  font-family: "Montserrat-Bold";
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.view-title {
+  font-size: 12px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.view-buttons {
+  cursor: pointer;
+}
+
+.back-btn-text {
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.character-card {
+  border-radius: 5px;
+  padding: 0;
+}
+
+.grid-card {
+  height: 231px;
+}
+
+.grid-card img {
+  height: 231px;
+}
+
+.character-card .card-body {
+  min-height: 191px;
+}
+
+.character-icon {
+  width: 90%;
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
+}
+
+.character-name {
+  font-family: "Montserrat-Bold";
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.character-race, .character-origin, .character-location, .character-gender, .character-episode {
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color6;
+}
+
+.character-race-value, .character-origin-value, .character-location-value, .character-gender-value, .character-episode-value {
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+
+.grid-btn {
+  position: relative;
+  width: 0;
+}
+
+.character-btn {
+  margin-top: 86px;
+}
+
+
+.is-favorite-icon {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40px;
+  max-height: 40px;
+  font-size: 15px;
+  position: relative;
+  bottom: 258px;
+  right: 20px;
+}
+
+.pagination {
+  cursor: pointer;
+  gap: 14px;
+}
+
+.character-btn, .page-item, .grid-btn {
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.disabled {
+  pointer-events: none
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  max-width: 30px;
+  max-height: 30px;
+  color: $color11;
+  font-family: 'Montserrat-Medium';
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.page-link:hover {
+  color: $color11;
+  background-color: $color12;
+  border: 1px solid $color3;
+}
+
+.page-link:focus {
+  box-shadow: none;
+  background: none;
+  color: $color11;
+}
+
+.prev-link, .next-link {
+  border: none;
+  font-family: 'Montserrat-Regular';
+  color: $color11;
+  font-weight: 400;
+  font-size: 12px;
+  display: block;
+  max-width: none;
+  max-height: none;
+}
+
+.prev-link:hover, .next-link:hover {
+  border: none;
+}
+
+.prev-link:before {
+  content: url("../../assets/icons/prev-arrow.svg");
+  position: absolute;
+  margin-left: -38px;
+  top: 5px;
+}
+
+.prev-link:hover:before {
+  content: url("../../assets/icons/hover-prev-arrow.svg");
+}
+
+.next-link::before {
+  content: url("../../assets/icons/next-arrow.svg");
+  position: absolute;
+  margin-left: 90px;
+  top: 5px;
+}
+
+.next-link:hover:before {
+  content: url("../../assets/icons/hover-next-arrow.svg");
+}
+
+.page-item.active-page a {
+  border: 1px solid $color3;
+  color: $color3 !important;
+  background: $color12 !important;
+}
+
+.page-item:not(:first-child) .page-link {
+  margin-left: 0px;
+}
+
+.status-img {
+  max-width: 5px;
+  max-height: 5px;
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .character-btn {
+    margin-top: 13px;
+  }
+  .character-name {
+    font-size: 16px;
+  }
+  .grid-card {
+    height: 231px;
+  }
+  .grid-card img {
+    height: 231px;
+  }
+  .character-race-value, .character-origin-value,
+  .character-location-value, .character-gender-value,
+  .character-episode-value {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  .pagination {
+    gap: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .character-form, .character-inputs {
+    flex-direction: column;
+  }
+  .character-icon {
+    width: 100%;
+  }
+  .back-btn {
+    display: flex;
+    justify-content: center;
+  }
+  .grid-card {
+    min-height: 520px;
+  }
+  .is-favorite-icon {
+    bottom: 550px;
+  }
+  .character-title {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+  }
+  .character-inputs input {
+    margin-top: 0 !important;
+  }
+  .view {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .view-buttons {
+    justify-content: start !important;
+  }
+  .view-title {
+    margin-bottom: 10px;
+  }
+  .card-body {
+    padding: 1rem 1rem;
+  }
+  .character-name {
+    text-align: center;
+  }
+  .text-xs-center {
+    text-align: center;
+  }
+  .mx-sm-2 {
+    margin-left: 0 !important;
+  }
+  .character-btn {
+    width: 100%;
+  }
+  .favorite-character-btn button{
+    bottom: 536px;
+  }
+}
+

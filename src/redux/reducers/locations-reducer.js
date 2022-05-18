@@ -35,6 +35,16 @@ const locationsReducer = (state = initialState, action) => {
         loading: false,
         error: null
       };
+    case 'REMOVE_FROM_FAVORITE':
+      return {
+        ...state,
+        favoriteLocations: action.payload
+      }
+    case 'FILTER_FAVORITE_LOCATIONS':
+      return {
+        ...state,
+        favoriteLocations: action.payload
+      }
     case 'FAVORITE_LOCATIONS_LOCAL_STORAGE_LOAD':
       return {
         ...state,

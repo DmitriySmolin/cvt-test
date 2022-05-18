@@ -39,6 +39,30 @@ const actionFavoriteCharactersLocalStorageLoad = () => {
   };
 };
 
+const actionRemoveFromFavorite = (favoriteCharacters) => {
+
+  localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
+
+  let itemsLocalStorage = JSON.parse(localStorage.getItem('favoriteCharacters'));
+
+  if (itemsLocalStorage.length === 0) localStorage.removeItem('favoriteCharacters');
+
+  return {
+    type: 'REMOVE_FROM_FAVORITE',
+    payload: favoriteCharacters
+  };
+};
+
+const actionFilterFavorite = (favoriteCharacters) => {
+
+  localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
+
+  return {
+    type: 'FILTER_FAVORITE_LOCATIONS',
+    payload: favoriteCharacters
+  };
+};
+
 const actionCharactersError = (error) => {
   return {
     type: 'CHARACTERS_ERROR',
@@ -51,6 +75,8 @@ export {
   actionCharactersLoad,
   actionSetQuantityPages,
   actionAddToFavorite,
+  actionRemoveFromFavorite,
+  actionFilterFavorite,
   actionFavoriteCharactersLocalStorageLoad,
   actionCharactersError
 };

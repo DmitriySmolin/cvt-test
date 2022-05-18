@@ -143,6 +143,7 @@ class CharactersList extends React.Component {
     />;
   };
 
+
   choiceStatusCharacter = (status) => {
     return status === 'Alive'
       ?
@@ -158,7 +159,6 @@ class CharactersList extends React.Component {
           :
           '';
   };
-
   renderListItemCharacters = () => {
     return this.props.characters.map(char => {
 
