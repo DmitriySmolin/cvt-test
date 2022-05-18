@@ -8,6 +8,7 @@ import Button from '../UI/button';
 import backBtn from '../../assets/icons/black-arrow.svg';
 import FavoriteLocationsContainer from '../containers/favorite-locations-container';
 import FavoriteCharactersContainer from '../containers/favorite-characters-container';
+import EpisodesListContainer from '../containers/favorite-episodes-container';
 
 
 const FavoritePage = () => {
@@ -43,7 +44,7 @@ const FavoritePage = () => {
       <Routes>
         <Route path="locations" element={<FavoriteLocationsContainer/>}/>
         <Route path="characters" element={<FavoriteCharactersContainer/>}/>
-        <Route path="episodes" element={<h1>Favorite episodes</h1>}/>
+        <Route path="episodes" element={<EpisodesListContainer/>}/>
       </Routes>
     </main>
   );

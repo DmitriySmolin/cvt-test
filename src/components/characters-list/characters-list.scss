@@ -1,6 +1,6 @@
 @import "../../styles/components/variable";
 
-.character-main .row{
+.character-main .row {
   --bs-gutter-x: 0rem;
 }
 
@@ -56,14 +56,18 @@
   font-size: 17px;
 }
 
-.character-race, .character-origin, .character-location, .character-gender, .character-episode {
+.character-race, .character-origin,
+.character-location, .character-gender,
+.character-episode {
   font-family: Montserrat-Regular;
   font-weight: 400;
   font-size: 12px;
   color: $color6;
 }
 
-.character-race-value, .character-origin-value, .character-location-value, .character-gender-value, .character-episode-value {
+.character-race-value, .character-origin-value,
+.character-location-value, .character-gender-value,
+.character-episode-value {
   font-family: "Montserrat-Medium";
   font-weight: 500;
   font-size: 14px;

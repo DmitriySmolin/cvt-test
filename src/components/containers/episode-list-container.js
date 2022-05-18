@@ -7,7 +7,7 @@ import {
   actionEpisodesError,
   actionEpisodesLoad,
   actionEpisodesRequest,
-  actionFavoriteEpisodesLocalStorageLoad, actionSetCurrentPage, actionSetEpisodeCharacters,
+  actionFavoriteEpisodesLocalStorageLoad, actionSetSelectedPage, actionSetEpisodeCharacters,
   actionSetQuantityPages
 } from '../../redux/actions/action-episodes';
 import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
@@ -63,15 +63,16 @@ class EpisodesListContainer extends React.Component {
 
   };
 
-  filter = async (name, episode, currentPage) => {
+  filter = async (name, episode, currentPage, selectPage) => {
+
     const {rickandmortyService, favoriteEpisodes, setQuantityPages, setEpisodeCharacters} = this.props;
 
     const res = await rickandmortyService.getAllEpisodes(name, episode, currentPage);
 
     this.props.episodesRequest();
-    this.props.setCurrentPage(currentPage - 1);
+    this.props.setSelectedPage(selectPage);
 
-    const episodeCharacters = await rickandmortyService.getEpisodeCharacters(name, episode, currentPage);
+    const episodeCharacters = await rickandmortyService.getEpisodeCharacters(null, name, episode, currentPage);
     setEpisodeCharacters(episodeCharacters);
 
     setQuantityPages(res.info.pages);
@@ -80,14 +81,15 @@ class EpisodesListContainer extends React.Component {
 
   handlePageClick = (data, name, episode) => {
 
-    const {episodesLoad, favoriteEpisodes, episodesRequest, setCurrentPage} = this.props;
+    const {episodesLoad, favoriteEpisodes, episodesRequest, setSelectedPage} = this.props;
 
     episodesRequest();
 
     let numberPage = data.selected + 1;
-    setCurrentPage(numberPage - 1);
+    let selectPage = data.selected;
+    setSelectedPage(selectPage);
 
-    this.filter(name.value, episode.value, numberPage).then(items => {
+    this.filter(name.value, episode.value, numberPage, selectPage).then(items => {
       episodesLoad(items);
       this.isCheckFavorite(favoriteEpisodes, items);
     });
@@ -110,7 +112,7 @@ class EpisodesListContainer extends React.Component {
       <EpisodesList episodes={this.props.episodes}
                     episodeCharacters={this.props.episodeCharacters}
                     quantityPages={this.props.quantityPages}
-                    currentPage={this.props.currentPage}
+                    selectPage={this.props.selectPage}
                     handlePageClick={this.handlePageClick}
                     addToFavorite={this.props.addToFavorite}
                     episodesLoad={this.props.episodesLoad}
@@ -126,7 +128,7 @@ const mapStateToProps = ({episodesList, auth}) => {
     episodes: episodesList.episodes,
     episodeCharacters: episodesList.episodeCharacters,
     quantityPages: episodesList.quantityPages,
-    currentPage: episodesList.currentPage,
+    selectPage: episodesList.selectPage,
     favoriteEpisodes: episodesList.favoriteEpisodes,
     loading: episodesList.loading,
     error: episodesList.error,
@@ -141,7 +143,7 @@ const mapDispatchToProps = (dispatch) => {
     setEpisodeCharacters: (episodeCharacters) => actionSetEpisodeCharacters(episodeCharacters),
     favoriteEpisodesLocalStorageLoad: () => actionFavoriteEpisodesLocalStorageLoad(),
     setQuantityPages: (quantityPages) => actionSetQuantityPages(quantityPages),
-    setCurrentPage: (currentPage) => actionSetCurrentPage(currentPage),
+    setSelectedPage: (selectPage) => actionSetSelectedPage(selectPage),
     addToFavorite: (episodes, episode) => actionAddToFavorite(episodes, episode),
     episodesError: (error) => actionEpisodesError(error),
   }, dispatch);

@@ -2,7 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import withRickandmortyService from '../hoc';
 import Spinner from '../spinner/spinner';
-import {actionAddToFavorite, actionLocationsError, actionLocationsLoad, actionLocationsRequest, actionFavoriteLocationsLocalStorageLoad, actionSetQuantityPages} from '../../redux/actions/action-locations';
+import {
+  actionAddToFavorite,
+  actionLocationsError,
+  actionLocationsLoad,
+  actionLocationsRequest,
+  actionFavoriteLocationsLocalStorageLoad,
+  actionSetQuantityPages,
+  actionSetSelectedPage
+} from '../../redux/actions/action-locations';
 import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import ErrorIndicator from '../error-indicator';
 import compose from '../../utils';
@@ -56,23 +64,30 @@ class LocationsListContainer extends React.Component {
 
   };
 
-  filter = async (name, type, dimension, currentPage) => {
+  filter = async (name, type, dimension, currentPage, selectPage) => {
     const {rickandmortyService, favoriteLocations, setQuantityPages} = this.props;
 
-    const data = rickandmortyService.getAllLocations(name, type, dimension, currentPage);
-    const res = await data;
+    const res = await rickandmortyService.getAllLocations(name, type, dimension, currentPage);
+
+    this.props.locationsRequest();
+    this.props.setSelectedPage(selectPage);
+
     setQuantityPages(res.info.pages);
     return this.isCheckFavorite(favoriteLocations, res.locations);
   };
 
   handlePageClick = (data, name, race, dimension) => {
 
-    const {locationsLoad, favoriteLocations, locationsRequest} = this.props;
+    const {locationsLoad, favoriteLocations, locationsRequest, setSelectedPage} = this.props;
+
+    locationsRequest();
 
     let numberPage = data.selected + 1;
+    let selectPage = data.selected;
+    setSelectedPage(selectPage);
 
-    this.filter(name.value, race.value, dimension.value, numberPage).then(items => {
-      locationsRequest();
+    this.filter(name.value, race.value, dimension.value, numberPage, selectPage).then(items => {
+
       locationsLoad(items);
       this.isCheckFavorite(favoriteLocations, items);
     });
@@ -95,6 +110,7 @@ class LocationsListContainer extends React.Component {
     return (
       <LocationsList locations={this.props.locations}
                      quantityPages={this.props.quantityPages}
+                     selectPage={this.props.selectPage}
                      handlePageClick={this.handlePageClick}
                      addToFavorite={this.props.addToFavorite}
                      locationsLoad={this.props.locationsLoad}
@@ -109,6 +125,7 @@ const mapStateToProps = ({locationsList, auth}) => {
   return {
     locations: locationsList.locations,
     quantityPages: locationsList.quantityPages,
+    selectPage: locationsList.selectPage,
     favoriteLocations: locationsList.favoriteLocations,
     loading: locationsList.loading,
     error: locationsList.error,
@@ -122,6 +139,7 @@ const mapDispatchToProps = (dispatch) => {
     locationsLoad: (newLocations) => actionLocationsLoad(newLocations),
     favoriteLocationsLocalStorageLoad: () => actionFavoriteLocationsLocalStorageLoad(),
     setQuantityPages: (quantityPages) => actionSetQuantityPages(quantityPages),
+    setSelectedPage: (selectPage) => actionSetSelectedPage(selectPage),
     addToFavorite: (locations, location) => actionAddToFavorite(locations, location),
     locationsError: (error) => actionLocationsError(error),
   }, dispatch);

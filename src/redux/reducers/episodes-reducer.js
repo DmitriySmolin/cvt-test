@@ -1,9 +1,9 @@
 const initialState = {
   episodes: [],
   favoriteEpisodes: [],
-  episodeCharacters: [],
+  episodeEpisodes: [],
   quantityPages: null,
-  currentPage: 0,
+  selectPage: 0,
   loading: true,
   error: null
 };
@@ -30,10 +30,10 @@ const episodesReducer = (state = initialState, action) => {
         ...state,
         quantityPages: action.payload
       };
-    case 'SET_CURRENT_PAGE':
+    case 'SET_SELECTED_PAGE':
       return {
         ...state,
-        currentPage: action.payload
+        selectPage: action.payload
       };
     case 'ADD_TO_FAVORITE':
       return {
@@ -42,6 +42,16 @@ const episodesReducer = (state = initialState, action) => {
         loading: false,
         error: null
       };
+      case 'REMOVE_FROM_FAVORITE':
+        return {
+          ...state,
+          favoriteEpisodes: action.payload
+        }
+      case 'FILTER_FAVORITE_EPISODES':
+        return {
+          ...state,
+          favoriteEpisodes: action.payload
+        }
     case 'FAVORITE_EPISODES_LOCAL_STORAGE_LOAD':
       return {
         ...state,

@@ -18,10 +18,10 @@ const actionSetQuantityPages = (quantityPages) => {
   };
 };
 
-const actionSetCurrentPage = (currentPage) => {
+const actionSetSelectedPage = (selectPage) => {
   return {
-    type: 'SET_CURRENT_PAGE',
-    payload: currentPage
+    type: 'SET_SELECTED_PAGE',
+    payload: selectPage
   };
 };
 
@@ -33,6 +33,30 @@ const actionAddToFavorite = (episodes, episode) => {
   return {
     type: 'ADD_TO_FAVORITE',
     payload: episode
+  };
+};
+
+const actionRemoveFromFavorite = (favoriteEpisodes) => {
+
+  localStorage.setItem('favoriteEpisodes', JSON.stringify(favoriteEpisodes));
+
+  let itemsLocalStorage = JSON.parse(localStorage.getItem('favoriteEpisodes'));
+
+  if (itemsLocalStorage.length === 0) localStorage.removeItem('favoriteEpisodes');
+
+  return {
+    type: 'REMOVE_FROM_FAVORITE',
+    payload: favoriteEpisodes
+  };
+};
+
+const actionFilterFavorite = (favoriteEpisodes) => {
+
+  localStorage.setItem('favoriteEpisodes', JSON.stringify(favoriteEpisodes));
+
+  return {
+    type: 'FILTER_FAVORITE_EPISODES',
+    payload: favoriteEpisodes
   };
 };
 
@@ -64,8 +88,10 @@ export {
   actionEpisodesRequest,
   actionEpisodesLoad,
   actionSetQuantityPages,
-  actionSetCurrentPage,
+  actionSetSelectedPage,
   actionAddToFavorite,
+  actionRemoveFromFavorite,
+  actionFilterFavorite,
   actionFavoriteEpisodesLocalStorageLoad,
   actionSetEpisodeCharacters,
   actionEpisodesError

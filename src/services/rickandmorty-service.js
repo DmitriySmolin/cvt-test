@@ -59,11 +59,19 @@ export default class RickandmortyService {
 
   };
 
-  getEpisodeCharacters = async (name = '', episode = '', currentPage = '') => {
+  getEpisodeCharacters = async (episodes = null, name = '', episode = '', currentPage = '') => {
 
-    const res = await this.getResource(`episode/?page=${currentPage}&name=${name}&episode=${episode}`);
+    let res;
 
-    const episodesId = res.results.map(item => item.id);
+    if (episodes) {
+      res = episodes.payload;
+    } else {
+      res = await this.getResource(`episode/?page=${currentPage}&name=${name}&episode=${episode}`);
+      res = res.results;
+    }
+
+
+    const episodesId = res.map(item => item.id);
 
     const arrayPromises = episodesId.map(id => this.getAllCharactersInOneEpisode(id));
 

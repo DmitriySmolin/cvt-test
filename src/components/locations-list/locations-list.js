@@ -131,6 +131,7 @@ class LocationsList extends React.Component {
         pageCount={Math.ceil(this.props.quantityPages)}
         marginPagesDisplayed={0}
         pageRangeDisplayed={pageRangeDisplayed}
+        forcePage={this.props.selectPage}
         breakLabel=""
         nextLabel={`Следующая`}
         previousLabel="Предыдущая"

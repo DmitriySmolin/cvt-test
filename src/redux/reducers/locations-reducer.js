@@ -2,6 +2,7 @@ const initialState = {
   locations: [],
   favoriteLocations: [],
   quantityPages: null,
+  selectPage: 0,
   loading: true,
   error: null
 };
@@ -27,6 +28,11 @@ const locationsReducer = (state = initialState, action) => {
       return {
         ...state,
         quantityPages: action.payload
+      };
+    case 'SET_SELECTED_PAGE':
+      return {
+        ...state,
+        selectPage: action.payload
       };
     case 'ADD_TO_FAVORITE':
       return {

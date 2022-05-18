@@ -18,6 +18,13 @@ const actionSetQuantityPages = (quantityPages) => {
   };
 };
 
+const actionSetSelectedPage = (selectPage) => {
+  return {
+    type: 'SET_SELECTED_PAGE',
+    payload: selectPage
+  };
+};
+
 const actionAddToFavorite = (characters, char) => {
 
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
@@ -74,6 +81,7 @@ export {
   actionCharactersRequest,
   actionCharactersLoad,
   actionSetQuantityPages,
+  actionSetSelectedPage,
   actionAddToFavorite,
   actionRemoveFromFavorite,
   actionFilterFavorite,

@@ -40,6 +40,10 @@ class CharactersList extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.resize.bind(this));
     this.resize();
+
+    if (localStorage.getItem('status')) {
+      this.setState({status: localStorage.getItem('status')});
+    }
   }
 
   componentWillUnmount() {
@@ -60,6 +64,7 @@ class CharactersList extends React.Component {
 
   onSelectChangeHandler = (event) => {
     this.setState({status: event.target.value});
+    localStorage.setItem('status', event.target.value);
   };
 
   onChangeHandler = (event, controlName) => {
@@ -189,6 +194,7 @@ class CharactersList extends React.Component {
         pageCount={Math.ceil(this.props.quantityPages)}
         marginPagesDisplayed={0}
         pageRangeDisplayed={pageRangeDisplayed}
+        forcePage={this.props.selectPage}
         breakLabel=""
         nextLabel={`Следующая`}
         previousLabel="Предыдущая"

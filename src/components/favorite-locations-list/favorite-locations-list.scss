@@ -55,14 +55,18 @@
   max-width: 422px;
 }
 
-.location-type, .location-dimension, .location-count-characters {
+.location-type,
+.location-dimension,
+.location-count-characters {
   font-family: Montserrat-Regular;
   font-weight: 400;
   font-size: 14px;
   color: $color6;
 }
 
-.location-type-value, .location-dimension-value, .location-count-characters-value {
+.location-type-value,
+.location-dimension-value,
+.location-count-characters-value {
   font-family: "Montserrat-Medium";
   font-weight: 500;
   font-size: 14px;
@@ -100,7 +104,9 @@
   gap: 14px;
 }
 
-.favorite-location-btn, .page-item, .grid-btn {
+.favorite-location-btn,
+.page-item,
+.grid-btn {
   -moz-user-select: none;
   -o-user-select: none;
   -khtml-user-select: none;
@@ -228,7 +234,7 @@
 }
 
 @media (min-width: 1440px) {
-  .favorite-location-btn button{
+  .favorite-location-btn button {
     right: -158px;
   }
 }
@@ -237,7 +243,7 @@
   .is-favorite-location-icon {
     right: -84px;
   }
-  .favorite-location-btn button{
+  .favorite-location-btn button {
     right: -72px;
   }
 }
@@ -246,7 +252,7 @@
   .is-favorite-location-icon {
     right: 7px;
   }
-  .favorite-location-btn button  {
+  .favorite-location-btn button {
     bottom: 90px;
     right: -403px;
   }
@@ -260,7 +266,7 @@
   .favorite-location-btn {
     margin-top: 13px;
   }
-  .favorite-location-btn button  {
+  .favorite-location-btn button {
     bottom: 76px;
     right: -286px;
   }
@@ -277,7 +283,9 @@
     height: 231px;
   }
 
-  .location-type-value, .location-dimension-value, location-count-characters-value {
+  .location-type-value,
+  .location-dimension-value,
+  .location-count-characters-value {
     font-size: 12px;
   }
 
