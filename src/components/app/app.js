@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
 
     return <div className="container container-md container-xl">
-      <BrowserRouter>
+      <BrowserRouter basename="/react-rick-morty">
         <Header/>
         <Routes>
           {ROUTES.map(({path, element}) => {
