@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/react-rick-morty/static/css/main.7f56fbae.css",
+    "main.js": "/react-rick-morty/static/js/main.f53fce87.js",
+    "static/media/logo.svg": "/react-rick-morty/static/media/logo.91854aef0bf9556f5313072261de5cd5.svg",
+    "static/media/favorite-locations.svg": "/react-rick-morty/static/media/favorite-locations.a249ab6075307073cd4b5fc4c4b0481d.svg",
+    "static/media/locations.svg": "/react-rick-morty/static/media/locations.a4670240fd9d9192cf2a025c228c183b.svg",
+    "static/media/favorite-episodes.svg": "/react-rick-morty/static/media/favorite-episodes.9b12477b36288cfc14ec9fc139308182.svg",
+    "static/media/episodes.svg": "/react-rick-morty/static/media/episodes.05e0df5c835d357e83ef59c6b0f6c22d.svg",
+    "static/media/Montserrat-Regular.ttf": "/react-rick-morty/static/media/Montserrat-Regular.2a2d37bf7680d86811db.ttf",
+    "static/media/Montserrat-Bold.ttf": "/react-rick-morty/static/media/Montserrat-Bold.0915f0a8c3367a6d05ec.ttf",
+    "static/media/Montserrat-Medium.ttf": "/react-rick-morty/static/media/Montserrat-Medium.647f0e61af3a76a138c3.ttf",
+    "static/media/favorite-characters.svg": "/react-rick-morty/static/media/favorite-characters.15a3f2b3fb4ddb6a69ce7703d392d093.svg",
+    "static/media/characters.svg": "/react-rick-morty/static/media/characters.e7bf1e7ed2f611b0ddec88f21a988351.svg",
+    "static/media/404.svg": "/react-rick-morty/static/media/404.c13099dd1706b12e16d9ef358d11a1b9.svg",
+    "static/media/hide-eye.svg": "/react-rick-morty/static/media/hide-eye.db3cba18d09bac740d4a64329f8e0795.svg",
+    "index.html": "/react-rick-morty/index.html",
+    "static/media/open-eye.svg": "/react-rick-morty/static/media/open-eye.c954f9eddb4e631c27bcd4ca7be0d120.svg",
+    "static/media/fill-check-green.svg": "/react-rick-morty/static/media/fill-check-green.8d2f50c3783f7562fc2f6ae816c593c4.svg",
+    "static/media/hover-next-arrow.svg": "/react-rick-morty/static/media/hover-next-arrow.26c0ef2fe43238350265.svg",
+    "static/media/hover-prev-arrow.svg": "/react-rick-morty/static/media/hover-prev-arrow.7fd4d1c38421e63594cb.svg",
+    "static/media/next-arrow.svg": "/react-rick-morty/static/media/next-arrow.ba2c9bf7af08e9f9e67d.svg",
+    "static/media/prev-arrow.svg": "/react-rick-morty/static/media/prev-arrow.796e826e76f4d7d42746.svg",
+    "static/media/cross.svg": "/react-rick-morty/static/media/cross.6806375d4d0ce9ff1f6fe008f7e0b572.svg",
+    "static/media/plus.svg": "/react-rick-morty/static/media/plus.fde057f93dca660b40854c8689276011.svg",
+    "static/media/black-arrow.svg": "/react-rick-morty/static/media/black-arrow.e27472381663c46a1f8df8138e536c7b.svg",
+    "static/media/hover-grid.svg": "/react-rick-morty/static/media/hover-grid.7735cd7729773b4b41fba25b671910d8.svg",
+    "static/media/grid.svg": "/react-rick-morty/static/media/grid.ad041d9d8b31608fa6e0a6ee38133030.svg",
+    "static/media/home.svg": "/react-rick-morty/static/media/home.e652c5d175a58b0a0090e5bd6f9ccd4d.svg",
+    "static/media/check-green.svg": "/react-rick-morty/static/media/check-green.118cf9644a231c654068a81ef863d95c.svg",
+    "static/media/hover-list.svg": "/react-rick-morty/static/media/hover-list.31740ffb606b03a8d995c4c4c3b0eb72.svg",
+    "static/media/list.svg": "/react-rick-morty/static/media/list.29aedfa04d1fd223015b1acbf3e48d30.svg",
+    "static/media/dot-green.svg": "/react-rick-morty/static/media/dot-green.131c1739ca07f0c137e254587b3a6ceb.svg",
+    "static/media/dot-red.svg": "/react-rick-morty/static/media/dot-red.8899477e6a9c8529640373b5292cc81a.svg",
+    "static/media/dot-yellow.svg": "/react-rick-morty/static/media/dot-yellow.386b9e33ab82183c998ebcc11491f187.svg",
+    "main.7f56fbae.css.map": "/react-rick-morty/static/css/main.7f56fbae.css.map",
+    "main.f53fce87.js.map": "/react-rick-morty/static/js/main.f53fce87.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7f56fbae.css",
+    "static/js/main.f53fce87.js"
+  ]
+}
