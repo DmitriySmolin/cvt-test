@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {actionFavoriteCharactersLocalStorageLoad, actionFilterFavorite, actionRemoveFromFavorite} from '../../redux/actions/action-characters';
+import {actionFavoriteCharactersLocalStorageLoad, 
+  actionFilterFavorite, 
+  actionRemoveFromFavorite} from '../../redux/actions/action-characters';
 import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import compose from '../../utils';
 import FavoriteCharactersList from '../favorite-characters-list/favorie-characters-list';

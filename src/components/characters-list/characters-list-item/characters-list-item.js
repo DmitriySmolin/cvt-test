@@ -1,5 +1,4 @@
 import React from 'react';
-import './characters-list-item.scss';
 import Button from '../../UI/button';
 import plusIcon from '../../../assets/icons/plus.svg';
 import isFavoriteIcon from '../../../assets/icons/check-green.svg';
@@ -87,7 +86,7 @@ class CharactersListItem extends React.Component {
 
     const gridView = (
       <div key={id} className="col-md-6 gx-4 gy-2 mb-4">
-        <div className="card character-card grid-card">
+        <div className="card character-card character-grid-card">
           <div className="row">
             <div className="col-md-4">
               <img className="character-icon" src={image} alt="card-image"/>
@@ -120,8 +119,8 @@ class CharactersListItem extends React.Component {
             </div>
           </div>
         </div>
-        <div className="grid-btn-wrapper row d-flex justify-content-end ">
-          <div className="grid-btn col-lg-5 col-md-8">
+        <div className="row d-flex justify-content-end ">
+          <div className="character-grid-btn col-lg-5 col-md-8">
             {isAuth
               ?
               !isFavorite
@@ -130,7 +129,7 @@ class CharactersListItem extends React.Component {
                   <img src={plusIcon} alt="plus"/>
                 </Button>
                 :
-                <img className="is-favorite-icon" src={isFavoriteFillIcon} alt="check"/>
+                <img className="character-favorite-icon" src={isFavoriteFillIcon} alt="check"/>
               : null
             }
           </div>
@@ -138,7 +137,7 @@ class CharactersListItem extends React.Component {
       </div>
     );
 
-    return isActiveList ? listView : gridView;
+    return isActiveList === 'list'? listView : gridView;
   }
 }
 

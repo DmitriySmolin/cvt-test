@@ -1,0 +1,258 @@
+.character-main {
+    .row {
+        --bs-gutter-x: 0rem;
+    }
+}
+
+.view-title {
+    font-size: 12px;
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.view-buttons {
+    cursor: pointer;
+}
+
+.character-card {
+    border-radius: 5px;
+    padding: 0;
+
+    .card-body {
+        min-height: 191px;
+    }
+}
+
+.character-grid-card {
+    height: 231px;
+
+    img {
+        height: 231px;
+    }
+}
+
+.character-icon {
+    width: 90%;
+    height: 100%;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.character-name {
+    font-family: "Montserrat-Bold";
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.character-race {
+    font-family: Montserrat-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.character-origin {
+    font-family: Montserrat-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.character-location {
+    font-family: Montserrat-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.character-gender {
+    font-family: Montserrat-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.character-episode {
+    font-family: Montserrat-Regular;
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.character-race-value {
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.character-origin-value {
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.character-location-value {
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.character-gender-value {
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.character-episode-value {
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.character-grid-btn {
+    position: relative;
+    width: 0;
+    right: 2px;
+}
+
+.character-btn {
+    margin-top: 86px;
+}
+
+.character-favorite-icon {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40px;
+    max-height: 40px;
+    font-size: 15px;
+    position: relative;
+    bottom: 258px;
+    right: 20px;
+}
+
+.status-img {
+    max-width: 5px;
+    max-height: 5px;
+}
+
+@media (min-width:769px) {
+    .character-grid-btn button {
+        bottom: 249px;
+        right: 22px;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .character-btn {
+        margin-top: 13px;
+    }
+
+    .character-grid-btn button {
+        bottom: 249px;
+        right: 22px;
+    }
+
+    .character-name {
+        font-size: 16px;
+    }
+
+    .character-grid-card {
+        height: 231px;
+
+        img {
+            height: 231px;
+        }
+    }
+
+    .character-race-value {
+        font-size: 12px;
+    }
+
+    .character-origin-value {
+        font-size: 12px;
+    }
+
+    .character-location-value {
+        font-size: 12px;
+    }
+
+    .character-gender-value {
+        font-size: 12px;
+    }
+
+    .character-episode-value {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 425px) {
+    .character-form {
+        flex-direction: column;
+    }
+
+    .character-inputs {
+        flex-direction: column;
+
+        input {
+            margin-top: 0 !important;
+        }
+    }
+
+    .character-icon {
+        width: 100%;
+    }
+
+    .back-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .character-grid-card {
+        min-height: 520px;
+    }
+
+    .character-favorite-icon {
+        bottom: 550px;
+        right: 25px;
+    }
+
+    .view {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .view-buttons {
+        justify-content: start !important;
+    }
+
+    .view-title {
+        margin-bottom: 10px;
+    }
+
+    .card-body {
+        padding: 1rem 1rem;
+    }
+
+    .character-name {
+        text-align: center;
+    }
+
+    .text-xs-center {
+        text-align: center;
+    }
+
+    .mx-sm-2 {
+        margin-left: 0 !important;
+    }
+
+    .character-grid-btn button {
+        bottom: 540px;
+    }
+
+    .character-btn {
+        width: 80%;
+        margin: 20px auto;
+    }
+}

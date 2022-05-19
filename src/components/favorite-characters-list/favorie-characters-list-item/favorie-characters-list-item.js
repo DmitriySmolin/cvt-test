@@ -1,5 +1,4 @@
 import React from 'react';
-import './favorie-characters-list-item.scss';
 import Button from '../../UI/button';
 import crossIcon from '../../../assets/icons/cross.svg';
 
@@ -19,7 +18,7 @@ class FavoriteCharactersListItem extends React.Component {
 
     return (
       <div key={id} className="col-md-6 gx-4 gy-2 mb-4">
-        <div className="card character-card grid-card">
+        <div className="card character-card">
           <div className="row">
             <div className="col-md-4">
               <img className="character-icon" src={image} alt="card-image"/>
@@ -52,8 +51,8 @@ class FavoriteCharactersListItem extends React.Component {
             </div>
           </div>
         </div>
-        <div className="grid-btn-wrapper row d-flex justify-content-end ">
-          <div className="grid-btn favorite-character-btn col-lg-5 col-md-8">
+        <div className="row d-flex justify-content-end ">
+          <div className="favorite-character-btn col-lg-5 col-md-8">
             <Button type="circle-remove-from-favorite-btn" onClick={() => removeFromFavoriteHandler(id)}>
               <img src={crossIcon} alt="cross"/>
             </Button>

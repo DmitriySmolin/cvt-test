@@ -15,6 +15,7 @@ import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import ErrorIndicator from '../error-indicator';
 import compose from '../../utils';
 import LocationsList from '../locations-list';
+import {isCheckFavorite} from '../../helpers/helpers';
 
 
 class LocationsListContainer extends React.Component {
@@ -40,7 +41,7 @@ class LocationsListContainer extends React.Component {
 
       setQuantityPages(res.info.pages);
       favoriteLocationsLocalStorageLoad();
-      locationsLoad(this.isCheckFavorite(this.props.favoriteLocations, res.locations));
+      locationsLoad(isCheckFavorite(this.props.favoriteLocations, res.locations));
 
     } catch (error) {
       locationsError(error);
@@ -65,6 +66,7 @@ class LocationsListContainer extends React.Component {
   };
 
   filter = async (name, type, dimension, currentPage, selectPage) => {
+
     const {rickandmortyService, favoriteLocations, setQuantityPages} = this.props;
 
     const res = await rickandmortyService.getAllLocations(name, type, dimension, currentPage);
@@ -73,7 +75,7 @@ class LocationsListContainer extends React.Component {
     this.props.setSelectedPage(selectPage);
 
     setQuantityPages(res.info.pages);
-    return this.isCheckFavorite(favoriteLocations, res.locations);
+    return isCheckFavorite(favoriteLocations, res.locations);
   };
 
   handlePageClick = (data, name, race, dimension) => {
@@ -87,9 +89,8 @@ class LocationsListContainer extends React.Component {
     setSelectedPage(selectPage);
 
     this.filter(name.value, race.value, dimension.value, numberPage, selectPage).then(items => {
-
       locationsLoad(items);
-      this.isCheckFavorite(favoriteLocations, items);
+      isCheckFavorite(favoriteLocations, items);
     });
 
   };

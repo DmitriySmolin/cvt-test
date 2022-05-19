@@ -15,7 +15,7 @@ import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import ErrorIndicator from '../error-indicator';
 import compose from '../../utils';
 import CharactersList from '../characters-list';
-
+import {isCheckFavorite} from '../../helpers/helpers';
 
 
 class CharactersListContainer extends React.Component {
@@ -41,41 +41,29 @@ class CharactersListContainer extends React.Component {
 
       setQuantityPages(res.info.pages);
       favoriteCharactersLocalStorageLoad();
-      charactersLoad(this.isCheckFavorite(this.props.favoriteCharacters, res.characters));
+      charactersLoad(isCheckFavorite(this.props.favoriteCharacters, res.characters));
 
     } catch (error) {
       charactersError(error);
     }
-
   }
 
+  filter = async (name, race, status, currentPage, selectPage) => {
+    const {
+      rickandmortyService,
+      favoriteCharacters,
+      setQuantityPages,
+      charactersRequest,
+      setSelectedPage
+    } = this.props;
 
-  isCheckFavorite = (oldItems = [], newItems = []) => {
-
-    if (oldItems.length === 0) return newItems;
-
-    oldItems.forEach((oldItem) => {
-      newItems.forEach((newItem) => {
-        if (oldItem.id === newItem.id) {
-          newItem.isFavorite = true;
-        }
-      });
-    });
-
-    return newItems;
-
-  };
-
-  filter = async (name, race, status, currentPage,selectPage) => {
-    const {rickandmortyService, favoriteCharacters, setQuantityPages} = this.props;
-
-    this.props.charactersRequest();
-    this.props.setSelectedPage(selectPage);
+    charactersRequest();
+    setSelectedPage(selectPage);
 
     const data = rickandmortyService.getAllCharacters(name, race, status, currentPage);
     const res = await data;
     setQuantityPages(res.info.pages);
-    return this.isCheckFavorite(favoriteCharacters, res.characters);
+    return isCheckFavorite(favoriteCharacters, res.characters);
   };
 
   handlePageClick = (data, name, race, status) => {
@@ -87,9 +75,9 @@ class CharactersListContainer extends React.Component {
     let numberPage = data.selected + 1;
     let selectPage = data.selected;
 
-    this.filter(name.value, race.value, status, numberPage,selectPage).then(items => {
+    this.filter(name.value, race.value, status, numberPage, selectPage).then(items => {
       charactersLoad(items);
-      this.isCheckFavorite(favoriteCharacters, items);
+      isCheckFavorite(favoriteCharacters, items);
     });
 
   };
@@ -97,7 +85,6 @@ class CharactersListContainer extends React.Component {
   render() {
 
     const {loading, error} = this.props;
-
 
     if (loading) {
       return <Spinner/>;

@@ -1,7 +1,6 @@
 import React from 'react';
-import './favorite-episodes-list.scss';
 import FavoriteEpisodesListItem from './favorite-episodes-list-item';
-import {sortArray} from '../helpers/helpers';
+import {sortArray} from '../../helpers/helpers';
 
 class FavoriteEpisodesList extends React.Component {
 
@@ -22,7 +21,6 @@ class FavoriteEpisodesList extends React.Component {
 
     removeFromFavorite(filteredFavoriteEpisodes);
   };
-
 
   filterFavoriteEpisodesHandler = (key) => {
     this.setState({filterEpisodes: key});
@@ -75,7 +73,6 @@ class FavoriteEpisodesList extends React.Component {
     );
   }
 }
-
 
 export default FavoriteEpisodesList;
 

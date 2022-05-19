@@ -1,10 +1,6 @@
 import React from 'react';
-import './favorite-episodes-list-item.scss';
 import Button from '../../UI/button';
-import plusIcon from '../../../assets/icons/plus.svg';
-import isFavoriteIcon from '../../../assets/icons/check-green.svg';
 import crossIcon from '../../../assets/icons/cross.svg';
-
 
 class FavoriteEpisodesListItem extends React.Component {
 
@@ -23,8 +19,8 @@ class FavoriteEpisodesListItem extends React.Component {
         <div className="episode-card favorite-episode-card card mb-3">
           <div className="episode-body card-body">
             <div className="row mb-2">
-              <div className="episode-name favorite-episode-name  col-md-7 col-sm-6 text-left">{name}</div>
-              <div className="episode-btn favorite-episode-btn col-md-5 col-sm-6">
+              <div className="favorite-episode-name favorite-episode-name col-md-7 col-sm-6 text-left">{name}</div>
+              <div className="favorite-episode-btn col-md-5 col-sm-6">
                 <Button type="circle-remove-from-favorite-btn" onClick={() => removeFromFavoriteHandler(id)}>
                   <img src={crossIcon} alt="cross"/>
                 </Button>
@@ -66,8 +62,6 @@ class FavoriteEpisodesListItem extends React.Component {
         </div>
       </div>
     );
-
-
   }
 }
 

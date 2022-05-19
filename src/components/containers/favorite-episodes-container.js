@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {actionFavoriteEpisodesLocalStorageLoad, actionFilterFavorite, actionRemoveFromFavorite, actionSetEpisodeCharacters} from '../../redux/actions/action-episodes';
+import {actionFavoriteEpisodesLocalStorageLoad, 
+  actionFilterFavorite, 
+  actionRemoveFromFavorite,
+   actionSetEpisodeCharacters} from '../../redux/actions/action-episodes';
 import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import compose from '../../utils';
 import FavoriteEpisodesList from '../favorite-episodes-list';
 import withRickandmortyService from '../hoc';
-
-
 
 
 class FavoriteEpisodesContainer extends React.Component {

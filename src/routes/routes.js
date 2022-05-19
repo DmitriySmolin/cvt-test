@@ -1,4 +1,4 @@
-import {AboutPage, FavoritePage, MainPage} from '../components/pages';
+import {AboutPage, FavoritePage, MainPage} from '../pages';
 import Auth from '../components/auth';
 import Register from '../components/register';
 import Logout from '../components/logout';

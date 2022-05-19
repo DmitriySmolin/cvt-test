@@ -11,7 +11,6 @@ export default class RickandmortyService {
     return body;
   };
 
-
   addPropertyFavorite = (item) => {
     return {
       ...item,
@@ -69,7 +68,6 @@ export default class RickandmortyService {
       res = await this.getResource(`episode/?page=${currentPage}&name=${name}&episode=${episode}`);
       res = res.results;
     }
-
 
     const episodesId = res.map(item => item.id);
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import './locations-list-item.scss';
 import Button from '../../UI/button';
 import plusIcon from '../../../assets/icons/plus.svg';
 import isFavoriteFillIcon from '../../../assets/icons/fill-check-green.svg';
@@ -23,7 +22,7 @@ class LocationsListItem extends React.Component {
           <div className="location-body card-body">
             <div className="row mb-2">
               <div className="location-name d-flex justify-content-center align-items-center gap-2 col-md-8col-sm-12">{name}</div>
-              <div className="grid-btn location-btn col-lg-5 col-md-4">
+              <div className="location-btn col-lg-5 col-md-4">
                 {isAuth
                   ?
                   !isFavorite
@@ -32,7 +31,7 @@ class LocationsListItem extends React.Component {
                       <img src={plusIcon} alt="plus"/>
                     </Button>
                     :
-                    <img className="is-favorite-location-icon" src={isFavoriteFillIcon} alt="check"/>
+                    <img className="location-favorite-icon" src={isFavoriteFillIcon} alt="check"/>
                   : null
                 }
               </div>
@@ -41,11 +40,11 @@ class LocationsListItem extends React.Component {
               <div className="col-md-5">
                 <div className="row mb-2">
                   <div className="location-type col-md-12">Тип:</div>
-                  <div className="location-type-value  col-md-12">{type}</div>
+                  <div className="location-type-value col-md-12">{type}</div>
                 </div>
                 <div className="row mb-2">
                   <div className="location-dimension col-md-12">Измерение:</div>
-                  <div className="location-dimension-value  col-md-12">{dimension}</div>
+                  <div className="location-dimension-value col-md-12">{dimension}</div>
                 </div>
               </div>
               <div className="col-md-7">

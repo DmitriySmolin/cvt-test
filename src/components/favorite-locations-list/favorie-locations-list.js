@@ -1,7 +1,6 @@
 import React from 'react';
-import './favorite-locations-list.scss';
 import FavoriteLocationsListItem from './favorite-locations-list-item';
-import {sortArray} from '../helpers/helpers';
+import {sortArray} from '../../helpers/helpers';
 
 
 class FavoriteLocationsList extends React.Component {
@@ -38,7 +37,9 @@ class FavoriteLocationsList extends React.Component {
     const {favoriteLocations} = this.props;
 
     if (favoriteLocations.length === 0) {
-      return <div className="title-no-favorites d-flex justify-content-center align-items-center px-2 mb-4 ">У вас пока нет избранных локаций</div>;
+      return <div className="title-no-favorites d-flex justify-content-center align-items-center px-2 mb-4 ">
+        У вас пока нет избранных локаций
+        </div>;
     }
 
     return (

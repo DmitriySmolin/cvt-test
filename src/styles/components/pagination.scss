@@ -1,0 +1,129 @@
+.pagination {
+    cursor: pointer;
+    gap: 14px;
+}
+
+.character-btn {
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.page-item {
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    &:not(:first-child) {
+        .page-link {
+            margin-left: 0px;
+        }
+    }
+}
+
+.character-grid-btn {
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    max-width: 30px;
+    max-height: 30px;
+    color: $color11;
+    font-family: 'Montserrat-Medium';
+    font-weight: 500;
+    font-size: 18px;
+
+    &:hover {
+        color: $color11;
+        background-color: $color12;
+        border: 1px solid $color3;
+    }
+
+    &:focus {
+        box-shadow: none;
+        background: none;
+        color: $color11;
+    }
+}
+
+.prev-link {
+    border: none;
+    font-family: 'Montserrat-Regular';
+    color: $color11;
+    font-weight: 400;
+    font-size: 12px;
+    display: block;
+    max-width: none;
+    max-height: none;
+
+    &:hover {
+        border: none;
+
+        &:before {
+            content: url("../../assets/icons/hover-prev-arrow.svg");
+        }
+    }
+
+    &:before {
+        content: url("../../assets/icons/prev-arrow.svg");
+        position: absolute;
+        margin-left: -38px;
+        top: 5px;
+    }
+}
+
+.next-link {
+    border: none;
+    font-family: 'Montserrat-Regular';
+    color: $color11;
+    font-weight: 400;
+    font-size: 12px;
+    display: block;
+    max-width: none;
+    max-height: none;
+
+    &:hover {
+        border: none;
+
+        &:before {
+            content: url("../../assets/icons/hover-next-arrow.svg");
+        }
+    }
+
+    &::before {
+        content: url("../../assets/icons/next-arrow.svg");
+        position: absolute;
+        margin-left: 90px;
+        top: 5px;
+    }
+}
+
+.page-item.active-page {
+    a {
+        border: 1px solid $color3;
+        color: $color3 !important;
+        background: $color12 !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .pagination {
+        gap: 0;
+    }
+}

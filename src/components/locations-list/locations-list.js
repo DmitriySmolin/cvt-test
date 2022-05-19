@@ -1,5 +1,4 @@
 import React from 'react';
-import './locations-list.scss';
 import {NavLink} from 'react-router-dom';
 import Input from '../UI/input';
 import Button from '../UI/button';
@@ -153,15 +152,15 @@ class LocationsList extends React.Component {
   render() {
 
     return (
-      <main className="main character-main row mt-5 ">
+      <main className="main location-main row mt-5 ">
         <NavLink to="/" className="col-md-5 col-sm-12">
-          <Button type={'back-btn'}>
-            <img src={backBtn} alt="backBtn"/>
-            <span className="back-btn-text mx-2">Назад</span>
+          <Button type='back-btn'>
+            <img src={backBtn} alt="back-btn"/>
+            <span className="mx-2">Назад</span>
           </Button>
         </NavLink>
-        <div className="location-title col-md-7 col-sm-12">Локации</div>
-        <form className="character-form mt-5 d-flex justify-content-between">
+        <div className="page-title col-md-7 col-sm-12">Локации</div>
+        <form className="location-form mt-5 mb-3 d-flex justify-content-between">
           <div className="location-inputs col-md-12 d-flex justify-content-between gap-4">
             {this.renderInputs()}
           </div>

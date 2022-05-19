@@ -1,9 +1,7 @@
 import React from 'react';
-import './episodes-list-item.scss';
 import Button from '../../UI/button';
 import plusIcon from '../../../assets/icons/plus.svg';
 import isFavoriteIcon from '../../../assets/icons/check-green.svg';
-
 
 class EpisodesListItem extends React.Component {
 
@@ -35,7 +33,7 @@ class EpisodesListItem extends React.Component {
                       Добавить в избранное
                     </Button>
                     : <Button type="is-favorite-btn">
-                      <img src={isFavoriteIcon} alt="isFavoriteIcon"/>
+                      <img src={isFavoriteIcon} alt="is-favorite-icon"/>
                       В избранном
                     </Button>
                   : null
@@ -46,11 +44,11 @@ class EpisodesListItem extends React.Component {
               <div className="col-md-5">
                 <div className="row mb-2">
                   <div className="episode-episode col-md-12">Эпизод:</div>
-                  <div className="location-episode-value  col-md-12">{episode}</div>
+                  <div className="location-episode-value col-md-12">{episode}</div>
                 </div>
                 <div className="row mb-2">
                   <div className="episode-air-date col-md-12">Дата выхода:</div>
-                  <div className="episode-air-date-value  col-md-12">{air_date}</div>
+                  <div className="episode-air-date-value col-md-12">{air_date}</div>
                 </div>
               </div>
               <div className="col-md-7">
@@ -78,8 +76,6 @@ class EpisodesListItem extends React.Component {
         </div>
       </div>
     );
-
-
   }
 }
 

@@ -1,0 +1,315 @@
+@import "../../styles/variable";
+
+.episode-main {
+    .row {
+        --bs-gutter-x: 0rem;
+    }
+}
+
+.episode-card {
+    border-radius: 5px;
+    padding: 0;
+
+    .card-body {
+        min-height: 191px;
+    }
+}
+
+.favorite-episode-card {
+    min-height: 436px;
+}
+
+.episode-body {
+    padding: 1rem 1rem;
+}
+
+.episode-icon {
+    width: 90%;
+    height: 100%;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.favorite-episode-name {
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat-Bold";
+    font-weight: 700;
+    font-size: 36px;
+}
+
+
+.episode-episode {
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.episode-air-date {
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.episode-characters {
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;
+    font-size: 12px;
+    color: $color6;
+}
+
+.episode-episode-value {
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.episode-air-date-value {
+    font-family: "Montserrat-Medium";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.episode-characters-value {
+    .episode-episode-value {
+        font-family: "Montserrat-Medium";
+        font-weight: 500;
+        font-size: 14px;
+    }
+}
+
+.favorite-episode-btn {
+    position: relative;
+    width: 0;
+    justify-content: space-around !important;
+    margin-top: 10px;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    button {
+        &:active {
+            box-shadow: none;
+        }
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+}
+
+.favorite-episode-btn {
+    button {
+        bottom: 200px;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.status-img {
+    max-width: 5px;
+    max-height: 5px;
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .favorite-episode-btn {
+        margin-top: 13px;
+    }
+
+    .favorite-episode-name {
+        font-size: 16px;
+    }
+
+    .episode-race-value {
+        font-size: 12px;
+    }
+
+    .episode-origin-value {
+        font-size: 12px;
+    }
+
+    .episode-location-value {
+        font-size: 12px;
+    }
+
+    .episode-gender-value {
+        font-size: 12px;
+    }
+
+    .episode-episode-value {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 425px) {
+    .episode-form {
+        flex-direction: column;
+    }
+
+    .episode-inputs {
+        flex-direction: column;
+
+        input {
+            margin-top: 0 !important;
+        }
+    }
+
+    .episode-icon {
+        width: 100%;
+    }
+
+    .card-body {
+        padding: 1rem 1rem;
+    }
+
+    .favorite-episode-name {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .text-xs-center {
+        text-align: center;
+    }
+
+    .mx-sm-2 {
+        margin-left: 0 !important;
+    }
+
+    .favorite-episode-btn {
+        width: 100%;
+        width: 70%;
+        bottom: 550px;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .episode-body {
+        >div {
+            justify-content: center;
+        }
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: -395px;
+            left: 188px;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .favorite-episode-btn {
+        button {
+            width: 50%;
+        }
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: 50px;
+            left: 225px;
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .favorite-episode-btn {
+        button {
+            width: 70%;
+        }
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: 50px;
+            left: 150px;
+        }
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .favorite-episode-btn {
+        button {
+            width: 60%;
+        }
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: 50px;
+            left: 190px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .favorite-episode-name {
+        height: 108px;
+    }
+
+    .favorite-episode-btn {
+        width: 38%;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: 55px;
+            left: 69px;
+        }
+    }
+}
+
+@media (max-width: 425px) {
+
+    .favorite-episode-name {
+        font-size: 26px;
+    }
+
+    .favorite-episode-btn {
+        width: 90%;
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: -395px;
+            left: 192px;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .favorite-episode-btn {
+        width: 90%;
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: -395px;
+            left: 166px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .favorite-episode-btn {
+        width: 100%;
+    }
+
+    .favorite-episode-btn {
+        button {
+            bottom: -395px;
+            left: 132px;
+        }
+    }
+}

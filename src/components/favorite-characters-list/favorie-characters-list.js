@@ -1,10 +1,9 @@
 import React from 'react';
-import './favorie-characters-list.scss';
 import FavoriteCharactersListItem from './favorie-characters-list-item';
 import dotGreen from '../../assets/icons/dot-green.svg';
 import dotRed from '../../assets/icons/dot-red.svg';
 import dotYellow from '../../assets/icons/dot-yellow.svg';
-import {sortArray} from '../helpers/helpers';
+import {sortArray} from '../../helpers/helpers';
 
 
 class FavoriteCharactersList extends React.Component {
@@ -48,7 +47,7 @@ class FavoriteCharactersList extends React.Component {
     this.setState({filterCharacters: key});
     localStorage.setItem('filterCharacters', key);
 
-    const filteredFavoriteCharacters = this.props.favoriteCharacters.sort(sortArray(key,key2));
+    const filteredFavoriteCharacters = this.props.favoriteCharacters.sort(sortArray(key, key2));
     this.props.filterFavorite(filteredFavoriteCharacters);
     this.props.favoriteCharactersLocalStorageLoad();
   };
@@ -57,7 +56,9 @@ class FavoriteCharactersList extends React.Component {
     const {favoriteCharacters} = this.props;
 
     if (favoriteCharacters.length === 0) {
-      return <div className="title-no-favorites d-flex justify-content-center align-items-center px-2 mb-4 ">У вас пока нет избранных персонажей</div>;
+      return <div className="title-no-favorites d-flex justify-content-center align-items-center px-2 mb-4 ">
+        У вас пока нет избранных персонажей
+      </div>;
     }
 
     return (

@@ -1,0 +1,276 @@
+@import "../../styles/variable";
+
+.location-main {
+  .row {
+    --bs-gutter-x: 0rem;
+  }
+}
+
+.location-body {
+  padding: 1rem 1rem;
+}
+
+
+.location-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 0;
+
+  .card-body {
+    min-height: 191px;
+  }
+}
+
+.location-icon {
+  width: 90%;
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
+}
+
+.location-name {
+  font-family: "Montserrat-Bold";
+  font-weight: 700;
+  font-size: 35px;
+  max-width: 422px;
+  height: 105px;
+  text-align: center;
+}
+
+.location-type {
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 14px;
+  color: $color6;
+}
+
+.location-dimension {
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 14px;
+  color: $color6;
+}
+
+.location-count-characters {
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 14px;
+  color: $color6;
+}
+
+.location-type-value {
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.location-dimension-value {
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.location-count-characters-value {
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 36px;
+}
+
+.location-btn {
+  button {
+    position: relative;
+    width: 0;
+    bottom: 140px;
+    right: -419px;
+  }
+
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.location-favorite-icon {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40px;
+  max-height: 40px;
+  font-size: 15px;
+  position: relative;
+  bottom: 140px;
+  right: -500px;
+}
+
+.status-img {
+  max-width: 5px;
+  max-height: 5px;
+}
+
+@media (min-width: 1400px) {
+  .location-btn {
+    button {
+      right: -500px;
+      bottom: 140px;
+    }
+  }
+
+  .location-favorite-icon {
+    right: -613px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .location-btn {
+    button {
+      right: -430px;
+      bottom: 140px;
+    }
+  }
+
+  .location-favorite-icon {
+    right: -520px;
+  }
+}
+
+@media (min-width: 1202px) and (max-width: 1399px) {
+  .location-btn {
+    button {
+      right: -430px;
+      bottom: 140px;
+    }
+  }
+
+  .location-favorite-icon {
+    right: -524px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .location-btn {
+    button {
+      right: -355px;
+      bottom: 140px;
+    }
+  }
+
+  .location-favorite-icon {
+    right: -415px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .location-favorite-icon {
+    bottom: 155px;
+    left: 309px;
+  }
+
+  .location-btn {
+    margin-top: 13px;
+  }
+
+  .location-btn button {
+    bottom: 155px;
+    left: 275px;
+  }
+
+  .location-name {
+    font-size: 16px;
+  }
+
+  .location-type-value {
+    font-size: 12px;
+  }
+
+  .location-dimension-value {
+    font-size: 12px;
+  }
+
+  .location-count-characters-value {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .location-form {
+    flex-direction: column;
+  }
+
+  .location-inputs {
+    flex-direction: column;
+
+    input {
+      margin-top: 0 !important;
+    }
+  }
+
+  .location-icon {
+    width: 100%;
+  }
+
+  .back-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .location-card {
+    min-height: 520px;
+  }
+
+  .location-favorite-icon {
+    bottom: 135px;
+    right: -374px;
+  }
+
+  .location-btn {
+    button {
+      bottom: 135px;
+      right: -192px;
+    }
+
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 1rem 1rem;
+  }
+
+  .location-name {
+    text-align: center;
+  }
+
+  .text-xs-center {
+    text-align: center;
+  }
+
+  .mx-sm-2 {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .location-btn {
+    button {
+      right: -164px;
+    }
+  }
+
+  .location-favorite-icon {
+    right: -320px;
+  }
+}
+
+@media (max-width: 320px) {
+  .location-btn {
+    button {
+      right: -133px;
+    }
+  }
+
+  .location-favorite-icon {
+    right: -265px;
+  }
+}

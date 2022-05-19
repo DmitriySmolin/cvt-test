@@ -1,5 +1,4 @@
 import React from 'react';
-import './favorite-locations-list-item.scss';
 import Button from '../../UI/button';
 import crossIcon from '../../../assets/icons/cross.svg';
 

@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 
 const Header = (props) => {
 
-
   let links = [{
     to: '/',
     label: 'Главная',

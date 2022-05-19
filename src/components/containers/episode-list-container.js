@@ -14,6 +14,7 @@ import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import ErrorIndicator from '../error-indicator';
 import compose from '../../utils';
 import EpisodesList from '../episodes-list';
+import {isCheckFavorite} from '../../helpers/helpers';
 
 
 class EpisodesListContainer extends React.Component {
@@ -39,7 +40,7 @@ class EpisodesListContainer extends React.Component {
 
       setQuantityPages(res.info.pages);
       favoriteEpisodesLocalStorageLoad();
-      episodesLoad(this.isCheckFavorite(this.props.favoriteEpisodes, res.episodes));
+      episodesLoad(isCheckFavorite(this.props.favoriteEpisodes, res.episodes));
 
     } catch (error) {
       episodesError(error);
@@ -76,7 +77,7 @@ class EpisodesListContainer extends React.Component {
     setEpisodeCharacters(episodeCharacters);
 
     setQuantityPages(res.info.pages);
-    return this.isCheckFavorite(favoriteEpisodes, res.episodes);
+    return isCheckFavorite(favoriteEpisodes, res.episodes);
   };
 
   handlePageClick = (data, name, episode) => {
@@ -91,7 +92,7 @@ class EpisodesListContainer extends React.Component {
 
     this.filter(name.value, episode.value, numberPage, selectPage).then(items => {
       episodesLoad(items);
-      this.isCheckFavorite(favoriteEpisodes, items);
+      isCheckFavorite(favoriteEpisodes, items);
     });
 
   };

@@ -1,0 +1,67 @@
+.page-title {
+  font-family: "Montserrat-Bold";
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.back-btn-text {
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.title-no-favorites {
+  margin-top: 136px;
+  font-family: 'Montserrat-Medium';
+  font-weight: 500;
+  font-size: 48px;
+  text-align: center;
+}
+
+.sort-block {
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.sort-text {
+  font-family: 'Montserrat-Bold';
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.sort-name {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.active-sort {
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+  color: $color3;
+}
+
+@media (max-width: 425px) {
+  .page-title {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .back-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title-no-favorites {
+    font-size: 36px;
+  }
+}

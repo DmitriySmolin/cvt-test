@@ -1,4 +1,4 @@
-@import "src/styles/components/variable";
+@import "../../../styles/variable";
 
 .button {
   display: inline-block;
@@ -12,38 +12,54 @@
   font-family: "Montserrat-Medium";
   font-weight: 500;
   cursor: pointer;
-}
 
-.button:focus {
-  outline: none;
-}
+  &:focus {
+    outline: none;
+  }
 
-.button:active {
-  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
-}
-
-.button:disabled {
-  background: #ccc;
-  color: #000;
-  cursor: not-allowed;
+  &:disabled {
+    background: #ccc;
+    color: #000;
+    cursor: not-allowed;
+  }
 }
 
 .dark {
   background-color: $color11;
+
+  &:hover {
+    background-color: $color6;
+  }
 }
 
-.dark:hover {
-  background-color: $color6;
+.btn-home {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $color11;
+  margin: 0 auto;
+  border-radius: 5px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  max-width: 164px;
+  width: 25%;
+  padding: 10px 20px 10px 20px;
+
+  &:hover {
+    background-color: $color6;
+  }
 }
 
 .outline-dark {
   border-color: $color11;
   background-color: $color12;
   color: $color11;
-}
 
-.outline-dark:hover {
-  background-color: $color13;
+  &:hover {
+    background-color: $color13;
+  }
 }
 
 .add-to-favorite-btn {
@@ -57,10 +73,10 @@
   font-family: 'Montserrat-Bold';
   font-weight: 700;
   font-size: 15px;
-}
 
-.add-to-favorite-btn:hover {
-  background-color: $color9;
+  &:hover {
+    background-color: $color9;
+  }
 }
 
 .circle-add-to-favorite-btn {
@@ -77,10 +93,10 @@
   max-height: 40px;
   border-radius: 50%;
   font-size: 15px;
-}
 
-.circle-add-to-favorite-btn:hover {
-  background-color: $color9;
+  &:hover {
+    background-color: $color9;
+  }
 }
 
 .circle-remove-from-favorite-btn {
@@ -97,10 +113,10 @@
   max-height: 40px;
   border-radius: 50%;
   font-size: 15px;
-}
 
-.circle-remove-from-favorite-btn:hover {
-  background-color: #FF0000;
+  &:hover {
+    background-color: #FF0000;
+  }
 }
 
 .is-favorite-btn {
@@ -116,10 +132,10 @@
   font-family: 'Montserrat-Bold';
   font-weight: 700;
   font-size: 15px;
-}
 
-.is-favorite-btn img {
-  padding: 0 10px;
+  img {
+    padding: 0 10px;
+  }
 }
 
 .back-btn {
@@ -134,10 +150,10 @@
   font-family: "Montserrat-Regular";
   font-weight: 400;
   font-size: 18px;
-}
 
-.back-btn:active {
-  box-shadow: none;
+  &:active {
+    box-shadow: none;
+  }
 }
 
 @media (max-width: 1440px) {
@@ -152,13 +168,11 @@
   }
 }
 
-
 @media (min-width: 1024px) and (max-width: 1199px) {
   .add-to-favorite-btn {
     width: 90%;
   }
 }
-
 
 @media (max-width: 768px) {
   .add-to-favorite-btn {
@@ -171,7 +185,6 @@
     bottom: 550px;
   }
 }
-
 
 @media (max-width: 375px) {
   .add-to-favorite-btn {

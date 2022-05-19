@@ -1,12 +1,10 @@
 import React from 'react';
-import './episodes-list.scss';
 import {NavLink} from 'react-router-dom';
 import Input from '../UI/input';
 import Button from '../UI/button';
 import backBtn from '../../assets/icons/black-arrow.svg';
 import ReactPaginate from 'react-paginate';
 import EpisodesListItem from './episodes-list-item';
-
 
 class EpisodesList extends React.Component {
 
@@ -44,11 +42,6 @@ class EpisodesList extends React.Component {
       this.setState({hideNav: currentHideNav});
     }
   }
-
-  getLastSymbol = (str) => {
-    const idRegExp = /\/(\d+)*$/;
-    return str.match(idRegExp)[1];
-  };
 
   onSelectChangeHandler = (event) => {
     this.setState({status: event.target.value});
@@ -109,7 +102,7 @@ class EpisodesList extends React.Component {
 
   renderListItemEpisodes = () => {
 
-    return this.props.episodes.map((episode,index) => {
+    return this.props.episodes.map((episode, index) => {
 
       const {...itemProps} = episode;
 
@@ -118,7 +111,6 @@ class EpisodesList extends React.Component {
         {...itemProps}
         episodeCharacters={this.props.episodeCharacters[index]}
         choiceStatusCharacter={this.choiceStatusCharacter}
-        getLastSymbol={this.getLastSymbol}
         addToFavoriteHandler={this.addToFavoriteHandler}
         isActiveList={this.state.isActiveList}
         isAuth={this.props.isAuth}
@@ -128,7 +120,7 @@ class EpisodesList extends React.Component {
 
   renderPagination = () => {
 
-    const {formFilters: {name, episode}, status,} = this.state;
+    const {formFilters: {name, episode}} = this.state;
     let pageRangeDisplayed = 5;
 
     if (this.state.hideNav) {
@@ -164,13 +156,13 @@ class EpisodesList extends React.Component {
     return (
       <main className="main episode-main row mt-5 ">
         <NavLink to="/" className="col-md-5 col-sm-12">
-          <Button type={'back-btn'}>
-            <img src={backBtn} alt="backBtn"/>
-            <span className="back-btn-text mx-2">Назад</span>
+          <Button type="back-btn">
+            <img src={backBtn} alt="back-btn"/>
+            <span className="mx-2">Назад</span>
           </Button>
         </NavLink>
-        <div className="episode-title col-md-7 col-sm-12">Эпизоды</div>
-        <form className="episode-form mt-5 d-flex justify-content-between">
+        <div className="page-title col-md-7 col-sm-12">Эпизоды</div>
+        <form className="episode-form mt-5 mb-3 d-flex justify-content-between">
           <div className="episode-inputs col-md-12 d-flex justify-content-between gap-4">
             {this.renderInputs()}
           </div>
