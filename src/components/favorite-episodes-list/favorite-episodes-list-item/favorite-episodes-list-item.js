@@ -3,16 +3,8 @@ import Button from '../../UI/button';
 import crossIcon from '../../../assets/icons/cross.svg';
 
 class FavoriteEpisodesListItem extends React.Component {
-
   render() {
-    const {
-      id,
-      name,
-      air_date,
-      episode,
-      episodeCharacters,
-      removeFromFavoriteHandler,
-    } = this.props;
+    const { id, name, air_date, episode, episodeCharacters, removeFromFavoriteHandler } = this.props;
 
     return (
       <div key={id} className="col-md-6 gx-4 gy-2 mb-4">
@@ -22,7 +14,7 @@ class FavoriteEpisodesListItem extends React.Component {
               <div className="favorite-episode-name favorite-episode-name col-md-7 col-sm-6 text-left">{name}</div>
               <div className="favorite-episode-btn col-md-5 col-sm-6">
                 <Button type="circle-remove-from-favorite-btn" onClick={() => removeFromFavoriteHandler(id)}>
-                  <img src={crossIcon} alt="cross"/>
+                  <img src={crossIcon} alt="cross" />
                 </Button>
               </div>
             </div>
@@ -43,17 +35,14 @@ class FavoriteEpisodesListItem extends React.Component {
                 </div>
                 <div className="row mb-2">
                   <div className="episode-characters-value col-md-12">
-                    {episodeCharacters && episodeCharacters.map((char, index) => {
-                      let res;
+                    {episodeCharacters &&
+                      episodeCharacters.map((char, index) => {
+                        let res;
 
-                      index === episodeCharacters.length - 1
-                        ?
-                        res = char.name + '.'
-                        :
-                        res = char.name + ', ';
+                        index === episodeCharacters.length - 1 ? (res = char.name + '.') : (res = char.name + ', ');
 
-                      return res;
-                    })}
+                        return res;
+                      })}
                   </div>
                 </div>
               </div>

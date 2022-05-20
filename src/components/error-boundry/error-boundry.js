@@ -4,18 +4,18 @@ import './error-boundry.module.scss';
 
 class ErrorBoundry extends React.Component {
   state = {
-    hasError: false
+    hasError: false,
   };
 
   componentDidCatch() {
     this.setState({
-      hasErr: true
+      hasErr: true,
     });
   }
 
   render() {
     if (this.state.hasError) {
-      return <ErrorIndicator/>;
+      return <ErrorIndicator />;
     }
     return this.props.children;
   }

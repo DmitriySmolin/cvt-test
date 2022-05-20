@@ -1,3 +1,3 @@
 import LocationsListItem from './locations-list-item';
 
-export  default LocationsListItem
+export default LocationsListItem;

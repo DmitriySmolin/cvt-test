@@ -4,18 +4,8 @@ import plusIcon from '../../../assets/icons/plus.svg';
 import isFavoriteIcon from '../../../assets/icons/check-green.svg';
 
 class EpisodesListItem extends React.Component {
-
   render() {
-    const {
-      id,
-      name,
-      air_date,
-      episode,
-      episodeCharacters,
-      isFavorite,
-      isAuth,
-      addToFavoriteHandler,
-    } = this.props;
+    const { id, name, air_date, episode, episodeCharacters, isFavorite, isAuth, addToFavoriteHandler } = this.props;
 
     return (
       <div key={id} className="col-md-12 gx-4 gy-2 mb-4">
@@ -24,20 +14,18 @@ class EpisodesListItem extends React.Component {
             <div className="row mb-2">
               <div className="episode-name col-md-7 col-sm-6 text-left">{name}</div>
               <div className="episode-btn col-md-5 col-sm-6">
-                {isAuth
-                  ?
-                  !isFavorite
-                    ?
+                {isAuth ? (
+                  !isFavorite ? (
                     <Button type="add-to-favorite-btn" onClick={() => addToFavoriteHandler(id)}>
-                      <img src={plusIcon} alt="plus"/>
+                      <img src={plusIcon} alt="plus" />
                       Добавить в избранное
                     </Button>
-                    : <Button type="is-favorite-btn">
-                      <img src={isFavoriteIcon} alt="is-favorite-icon"/>
-                      В избранном
+                  ) : (
+                    <Button type="is-favorite-btn">
+                      <img src={isFavoriteIcon} alt="is-favorite-icon" />В избранном
                     </Button>
-                  : null
-                }
+                  )
+                ) : null}
               </div>
             </div>
             <div className="row">
@@ -57,17 +45,14 @@ class EpisodesListItem extends React.Component {
                 </div>
                 <div className="row mb-2">
                   <div className="episode-characters-value col-md-12">
-                    {episodeCharacters && episodeCharacters.map((char, index) => {
-                      let res;
+                    {episodeCharacters &&
+                      episodeCharacters.map((char, index) => {
+                        let res;
 
-                      index === episodeCharacters.length - 1
-                        ?
-                        res = char.name + '.'
-                        :
-                        res = char.name + ', ';
+                        index === episodeCharacters.length - 1 ? (res = char.name + '.') : (res = char.name + ', ');
 
-                      return res;
-                    })}
+                        return res;
+                      })}
                   </div>
                 </div>
               </div>

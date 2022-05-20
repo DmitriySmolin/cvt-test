@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import withRickandmortyService from '../hoc';
+import { withRickandmortyService } from '../hoc';
 import Spinner from '../spinner/spinner';
 import {
   actionAddToFavorite,

@@ -1,3 +1,3 @@
 import EpisodesList from './episodes-list';
 
-export  default EpisodesList
+export default EpisodesList;

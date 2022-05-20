@@ -1,6 +1,3 @@
-import {RickandmortyServiceProvider, RickandmortyServiceConsumer} from './rickandmorty-service-context';
+import { RickandmortyServiceProvider, RickandmortyServiceConsumer } from './rickandmorty-service-context';
 
-export {
-  RickandmortyServiceProvider,
-  RickandmortyServiceConsumer
-};
+export { RickandmortyServiceProvider, RickandmortyServiceConsumer };

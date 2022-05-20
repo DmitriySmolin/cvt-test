@@ -1,7 +1,5 @@
 export const sortArray = (key, key2 = null) => {
-
   return (a, b) => {
-
     if (key2) {
       if (a[key][key2] < b[key][key2]) return -1;
       if (a[key][key2] > b[key][key2]) return 1;
@@ -12,11 +10,9 @@ export const sortArray = (key, key2 = null) => {
     if (a[key] > b[key]) return 1;
     return 0;
   };
-
 };
 
 export const isCheckFavorite = (oldItems = [], newItems = []) => {
-
   if (oldItems.length === 0) return newItems;
 
   oldItems.forEach((oldItem) => {
@@ -28,5 +24,4 @@ export const isCheckFavorite = (oldItems = [], newItems = []) => {
   });
 
   return newItems;
-
 };

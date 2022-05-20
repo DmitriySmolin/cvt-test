@@ -1,4 +1,4 @@
-import {AboutPage, FavoritePage, MainPage} from '../pages';
+import { AboutPage, FavoritePage, MainPage } from '../pages';
 import Auth from '../components/auth';
 import Register from '../components/register';
 import Logout from '../components/logout';
@@ -10,47 +10,47 @@ import EpisodesListContainer from '../components/containers/episode-list-contain
 export const ROUTES = [
   {
     path: '/',
-    element: <MainPage/>,
+    element: <MainPage />,
   },
   {
     path: '/main',
-    element: <MainPage/>,
+    element: <MainPage />,
   },
   {
     path: '/about',
-    element: <AboutPage/>,
+    element: <AboutPage />,
   },
   {
     path: '/favorites/*',
-    element: <FavoritePage/>,
+    element: <FavoritePage />,
   },
   {
     path: '/auth',
-    element: <Auth/>,
+    element: <Auth />,
   },
   {
     path: '/register',
-    element: <Register/>,
+    element: <Register />,
   },
   {
     path: '/logout',
-    element: <Logout/>,
+    element: <Logout />,
   },
   {
     path: '/characters',
-    element: <CharactersListContainer/>,
+    element: <CharactersListContainer />,
   },
   {
     path: '/locations',
-    element: <LocationsListContainer/>,
+    element: <LocationsListContainer />,
   },
   {
     path: '/episodes',
-    element: <EpisodesListContainer/>,
+    element: <EpisodesListContainer />,
   },
   {
     path: '*',
-    element: <ErrorIndicator/>,
+    element: <ErrorIndicator />,
   },
 ];
 

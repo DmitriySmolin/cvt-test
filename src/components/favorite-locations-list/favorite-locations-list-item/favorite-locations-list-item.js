@@ -3,26 +3,20 @@ import Button from '../../UI/button';
 import crossIcon from '../../../assets/icons/cross.svg';
 
 class FavoriteLocationsListItem extends React.Component {
-
   render() {
-    const {
-      id,
-      name,
-      type,
-      dimension,
-      residents,
-      removeFromFavoriteHandler,
-    } = this.props;
+    const { id, name, type, dimension, residents, removeFromFavoriteHandler } = this.props;
 
     return (
       <div key={id} className="col-md-6 gx-4 gy-2 mb-4">
         <div className="location-card card">
           <div className="location-body card-body">
             <div className="row mb-2">
-              <div className="location-name d-flex justify-content-center align-items-center gap-2 col-md-8col-sm-12">{name}</div>
+              <div className="location-name d-flex justify-content-center align-items-center gap-2 col-md-8col-sm-12">
+                {name}
+              </div>
               <div className="grid-btn favorite-location-btn col-lg-5 col-md-4">
                 <Button type="circle-remove-from-favorite-btn" onClick={() => removeFromFavoriteHandler(id)}>
-                  <img src={crossIcon} alt="cross"/>
+                  <img src={crossIcon} alt="cross" />
                 </Button>
               </div>
             </div>
@@ -39,20 +33,20 @@ class FavoriteLocationsListItem extends React.Component {
               </div>
               <div className="col-md-7">
                 <div className="row mb-2">
-                  <div className="location-count-characters col-md-12">Количество персонажей, которые в последний раз были замечены здесь:</div>
+                  <div className="location-count-characters col-md-12">
+                    Количество персонажей, которые в последний раз были замечены здесь:
+                  </div>
                 </div>
                 <div className="row mb-2">
                   <div className="location-count-characters-value col-md-12">{residents && residents.length}</div>
                 </div>
               </div>
             </div>
-            <div className="grid-btn-wrapper row d-flex justify-content-end ">
-            </div>
+            <div className="grid-btn-wrapper row d-flex justify-content-end "></div>
           </div>
         </div>
       </div>
     );
-
   }
 }
 

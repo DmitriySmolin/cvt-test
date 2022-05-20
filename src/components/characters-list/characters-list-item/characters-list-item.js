@@ -21,24 +21,21 @@ class CharactersListItem extends React.Component {
       isAuth,
       choiceStatusCharacter,
       getLastSymbol,
-      addToFavoriteHandler
+      addToFavoriteHandler,
     } = this.props;
 
     const listView = (
       <div key={id} className="character-card card mb-3">
         <div className="row">
           <div className="col-md-3">
-            <img className="character-icon" src={image} alt="card-image"/>
+            <img className="character-icon" src={image} alt="card-image" />
           </div>
           <div className="col-md-9">
             <div className="card-body">
               <div className="row mb-2">
                 <div className="character-name col-md-10 col-sm-12">{name}</div>
                 <div className="col-md-2 text-center col-sm-12 d-flex justify-content-center align-items-center gap-2">
-                  <img
-                    className="mx-sm-2 status-img"
-                    src={choiceStatusCharacter(status)}
-                    alt="status"/>
+                  <img className="mx-sm-2 status-img" src={choiceStatusCharacter(status)} alt="status" />
                   {status}
                 </div>
               </div>
@@ -62,20 +59,18 @@ class CharactersListItem extends React.Component {
               </div>
               <div className="row d-flex justify-content-end ">
                 <div className="character-btn col-lg-5 col-md-8">
-                  {isAuth
-                    ?
-                    !isFavorite
-                      ?
+                  {isAuth ? (
+                    !isFavorite ? (
                       <Button type="add-to-favorite-btn" onClick={() => addToFavoriteHandler(id)}>
-                        <img src={plusIcon} alt="plus"/>
+                        <img src={plusIcon} alt="plus" />
                         Добавить в избранное
                       </Button>
-                      : <Button type="is-favorite-btn">
-                        <img src={isFavoriteIcon} alt="isFavoriteIcon"/>
-                        В избранном
+                    ) : (
+                      <Button type="is-favorite-btn">
+                        <img src={isFavoriteIcon} alt="isFavoriteIcon" />В избранном
                       </Button>
-                    : null
-                  }
+                    )
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -89,17 +84,14 @@ class CharactersListItem extends React.Component {
         <div className="card character-card character-grid-card">
           <div className="row">
             <div className="col-md-4">
-              <img className="character-icon" src={image} alt="card-image"/>
+              <img className="character-icon" src={image} alt="card-image" />
             </div>
             <div className="col-md-8">
               <div className="card-body">
                 <div className="row mb-2">
                   <div className="character-name col-md-8 col-sm-12">{name}</div>
                   <div className="col-md-4 text-center col-sm-12 d-flex justify-content-center align-items-center gap-2">
-                    <img
-                      className="status-img"
-                      src={choiceStatusCharacter(status)}
-                      alt="status"/>
+                    <img className="status-img" src={choiceStatusCharacter(status)} alt="status" />
                     {status}
                   </div>
                 </div>
@@ -121,23 +113,21 @@ class CharactersListItem extends React.Component {
         </div>
         <div className="row d-flex justify-content-end ">
           <div className="character-grid-btn col-lg-5 col-md-8">
-            {isAuth
-              ?
-              !isFavorite
-                ?
+            {isAuth ? (
+              !isFavorite ? (
                 <Button type="circle-add-to-favorite-btn" onClick={() => addToFavoriteHandler(id)}>
-                  <img src={plusIcon} alt="plus"/>
+                  <img src={plusIcon} alt="plus" />
                 </Button>
-                :
-                <img className="character-favorite-icon" src={isFavoriteFillIcon} alt="check"/>
-              : null
-            }
+              ) : (
+                <img className="character-favorite-icon" src={isFavoriteFillIcon} alt="check" />
+              )
+            ) : null}
           </div>
         </div>
       </div>
     );
 
-    return isActiveList === 'list'? listView : gridView;
+    return isActiveList === 'list' ? listView : gridView;
   }
 }
 

@@ -1,15 +1,15 @@
 import React from 'react';
-import {RickandmortyServiceConsumer} from '../rickandmorty-service-context';
+import { RickandmortyServiceConsumer } from '../rickandmorty-service-context';
 
 const withRickandmortyService = () => (Wrapped) => {
   return (props) => {
-    return <RickandmortyServiceConsumer>
-      {
-        (rickandmortyService) => {
-          return <Wrapped {...props} rickandmortyService={rickandmortyService}/>;
-        }
-      }
-    </RickandmortyServiceConsumer>;
+    return (
+      <RickandmortyServiceConsumer>
+        {(rickandmortyService) => {
+          return <Wrapped {...props} rickandmortyService={rickandmortyService} />;
+        }}
+      </RickandmortyServiceConsumer>
+    );
   };
 };
 

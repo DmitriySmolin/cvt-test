@@ -14,7 +14,7 @@ export default class RickandmortyService {
   addPropertyFavorite = (item) => {
     return {
       ...item,
-      isFavorite: false
+      isFavorite: false,
     };
   };
 
@@ -22,32 +22,32 @@ export default class RickandmortyService {
     if (status === 'Выберите статус персонажа') {
       status = '';
     }
-    const res = await this.getResource(`character/?page=${currentPage}&name=${name}&species=${species}&status=${status}`);
-    const characters = res.results.map(item => this.addPropertyFavorite(item));
+    const res = await this.getResource(
+      `character/?page=${currentPage}&name=${name}&species=${species}&status=${status}`
+    );
+    const characters = res.results.map((item) => this.addPropertyFavorite(item));
 
-    return {characters, info: res.info};
+    return { characters, info: res.info };
   };
 
   getAllLocations = async (name = '', type = '', dimension = '', currentPage = '') => {
+    const res = await this.getResource(
+      `location/?page=${currentPage}&name=${name}&type=${type}&dimension=${dimension}`
+    );
+    const locations = res.results.map((item) => this.addPropertyFavorite(item));
 
-    const res = await this.getResource(`location/?page=${currentPage}&name=${name}&type=${type}&dimension=${dimension}`);
-    const locations = res.results.map(item => this.addPropertyFavorite(item));
-
-    return {locations, info: res.info};
+    return { locations, info: res.info };
   };
 
   getAllEpisodes = async (name = '', episode = '', currentPage = '') => {
-
     const res = await this.getResource(`episode/?page=${currentPage}&name=${name}&episode=${episode}`);
 
-    const episodes = res.results.map(item => this.addPropertyFavorite(item));
+    const episodes = res.results.map((item) => this.addPropertyFavorite(item));
 
-    return {episodes, info: res.info};
+    return { episodes, info: res.info };
   };
 
-
   getAllCharactersInOneEpisode = async (id) => {
-
     const data = await this.getResource(`episode/${id}`);
 
     return await Promise.all(
@@ -55,11 +55,9 @@ export default class RickandmortyService {
         return fetch(x).then((res) => res.json());
       })
     );
-
   };
 
   getEpisodeCharacters = async (episodes = null, name = '', episode = '', currentPage = '') => {
-
     let res;
 
     if (episodes) {
@@ -69,17 +67,14 @@ export default class RickandmortyService {
       res = res.results;
     }
 
-    const episodesId = res.map(item => item.id);
+    const episodesId = res.map((item) => item.id);
 
-    const arrayPromises = episodesId.map(id => this.getAllCharactersInOneEpisode(id));
+    const arrayPromises = episodesId.map((id) => this.getAllCharactersInOneEpisode(id));
 
-    const episodeCharacters = await Promise.all(arrayPromises).then(values => {
+    const episodeCharacters = await Promise.all(arrayPromises).then((values) => {
       return values;
     });
 
     return episodeCharacters;
-
   };
-
 }
-

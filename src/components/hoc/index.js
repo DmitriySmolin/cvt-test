@@ -1,3 +1,4 @@
 import withRickandmortyService from './with-rickandmorty-service';
+import layout from './layout';
 
-export default withRickandmortyService;
+export { withRickandmortyService, layout };

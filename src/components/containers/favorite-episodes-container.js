@@ -1,21 +1,19 @@
 import React from 'react';
-import {connect} from 'react-redux';
-
-import {actionFavoriteEpisodesLocalStorageLoad, 
-  actionFilterFavorite, 
+import { connect } from 'react-redux';
+import {
+  actionFavoriteEpisodesLocalStorageLoad,
+  actionFilterFavorite,
   actionRemoveFromFavorite,
-   actionSetEpisodeCharacters} from '../../redux/actions/action-episodes';
+  actionSetEpisodeCharacters,
+} from '../../redux/actions/action-episodes';
 import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import compose from '../../utils';
 import FavoriteEpisodesList from '../favorite-episodes-list';
-import withRickandmortyService from '../hoc';
-
+import { withRickandmortyService } from '../hoc';
 
 class FavoriteEpisodesContainer extends React.Component {
-
- async componentDidMount() {
-
-    const favoriteEpisodes =  this.props.favoriteEpisodesLocalStorageLoad();
+  async componentDidMount() {
+    const favoriteEpisodes = this.props.favoriteEpisodesLocalStorageLoad();
 
     const episodeCharacters = await this.props.rickandmortyService.getEpisodeCharacters(favoriteEpisodes);
     this.props.setEpisodeCharacters(episodeCharacters);
@@ -34,7 +32,7 @@ class FavoriteEpisodesContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({episodesList}) => {
+const mapStateToProps = ({ episodesList }) => {
   return {
     favoriteEpisodes: episodesList.favoriteEpisodes,
     episodeCharacters: episodesList.episodeCharacters,
@@ -42,16 +40,18 @@ const mapStateToProps = ({episodesList}) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    favoriteEpisodesLocalStorageLoad: () => actionFavoriteEpisodesLocalStorageLoad(),
-    setEpisodeCharacters: (episodeCharacters) => actionSetEpisodeCharacters(episodeCharacters),
-    removeFromFavorite: (favoriteEpisodes) => actionRemoveFromFavorite(favoriteEpisodes),
-    filterFavorite:(favoriteEpisodes) => actionFilterFavorite(favoriteEpisodes)
-  }, dispatch);
+  return bindActionCreators(
+    {
+      favoriteEpisodesLocalStorageLoad: () => actionFavoriteEpisodesLocalStorageLoad(),
+      setEpisodeCharacters: (episodeCharacters) => actionSetEpisodeCharacters(episodeCharacters),
+      removeFromFavorite: (favoriteEpisodes) => actionRemoveFromFavorite(favoriteEpisodes),
+      filterFavorite: (favoriteEpisodes) => actionFilterFavorite(favoriteEpisodes),
+    },
+    dispatch
+  );
 };
 
 export default compose(
   withRickandmortyService(),
   connect(mapStateToProps, mapDispatchToProps)
 )(FavoriteEpisodesContainer);
-
