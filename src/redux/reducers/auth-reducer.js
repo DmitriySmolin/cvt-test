@@ -1,12 +1,12 @@
-import {AUTH_SUCCESS, AUTH_FAILURE, AUTH_LOGOUT} from '../action-types/action-types';
+import { AUTH_SUCCESS, AUTH_FAILURE, AUTH_LOGOUT } from '../action-types/action-types';
 
 const initialState = {
   token: null,
   email: null,
-  error: null
+  error: null,
 };
 
-const authReducer = (state = initialState, {type, payload}) => {
+const authReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case AUTH_SUCCESS:
       return {
@@ -24,7 +24,7 @@ const authReducer = (state = initialState, {type, payload}) => {
         ...state,
         token: null,
         email: null,
-        error: null
+        error: null,
       };
     default:
       return state;

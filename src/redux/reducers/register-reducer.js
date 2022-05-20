@@ -1,13 +1,13 @@
-import {REGISTER_SUCCESS, REGISTER_FAILURE,} from '../action-types/action-types';
+import { REGISTER_SUCCESS, REGISTER_FAILURE } from '../action-types/action-types';
 
 const initialState = {
   success: null,
-  error: null
+  error: null,
 };
 
-const registerReducer = (state = initialState, {type, payload}) => {
+const registerReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case REGISTER_SUCCESS :
+    case REGISTER_SUCCESS:
       return {
         ...state,
         success: payload,
