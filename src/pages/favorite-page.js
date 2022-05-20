@@ -12,17 +12,6 @@ import EpisodesListContainer from '../components/containers/favorite-episodes-co
 
 const FavoritePage = () => {
 
-  const [activeFavoritePage, setActiveFavoritePage] = useState('null');
-
-  const onPageHandler = ({target}) => {
-    setActiveFavoritePage(target.id);
-    localStorage.setItem('activeFavoritePage', target.id);
-  };
-
-  useEffect(() => {
-    setActiveFavoritePage(localStorage.getItem('activeFavoritePage'));
-  });
-
   const favoriteConfig = [
     {
       path: 'locations',
@@ -54,7 +43,7 @@ const FavoritePage = () => {
       </div>
       <div className="row row-cols-1 row-cols-md-3 row-cols-sm-auto gap-md-0 gap-5">
         {favoriteConfig.map(({path, img}) => {
-          return <NavLink key={path + Math.random()} className={`${path === activeFavoritePage ? 'active' : ''}`} to={path} onClick={onPageHandler}>
+          return <NavLink key={path + Math.random()} to={path} >
             <div className="col">
               <img id={path} src={img} className="favorite-img-top rounded-3" alt={img}/>
             </div>

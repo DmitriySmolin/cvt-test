@@ -2,6 +2,8 @@
 @import "fonts";
 @import 'variable';
 @import "global";
+@import "components/auth";
+@import 'components/register';
 @import './components/pagination';
 @import './components/spinner';
 @import "./components/error-indicator";

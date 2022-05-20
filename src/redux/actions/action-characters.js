@@ -1,52 +1,54 @@
-const actionCharactersRequest = () => {
+import {ADD_CHARACTERS_TO_FAVORITE, CHARACTERS_ERROR, CHARACTERS_LOAD, CHARACTERS_REQUEST, FAVORITE_CHARACTERS_LOCAL_STORAGE_LOAD, FILTER_FAVORITE_CHARACTERS, REMOVE_CHARACTERS_FROM_FAVORITE, SET_QUANTITY_PAGES, SET_SELECTED_PAGE} from '../action-types/action-types';
+
+export const actionCharactersRequest = () => {
   return {
-    type: 'CHARACTERS_REQUEST'
+    type: CHARACTERS_REQUEST
   };
 };
 
-const actionCharactersLoad = (newCharacters) => {
+export const actionCharactersLoad = (newCharacters) => {
   return {
-    type: 'CHARACTERS_LOAD',
+    type: CHARACTERS_LOAD,
     payload: newCharacters
   };
 };
 
-const actionSetQuantityPages = (quantityPages) => {
+export const actionSetQuantityPages = (quantityPages) => {
   return {
-    type: 'SET_QUANTITY_PAGES',
+    type: SET_QUANTITY_PAGES,
     payload: quantityPages
   };
 };
 
-const actionSetSelectedPage = (selectPage) => {
+export const actionSetSelectedPage = (selectPage) => {
   return {
-    type: 'SET_SELECTED_PAGE',
+    type: SET_SELECTED_PAGE,
     payload: selectPage
   };
 };
 
-const actionAddToFavorite = (characters, char) => {
+export const actionAddToFavorite = (characters, char) => {
 
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
   localStorage.setItem('favoriteCharacters', JSON.stringify([...favoriteCharacters, char]));
 
   return {
-    type: 'ADD_TO_FAVORITE',
+    type: ADD_CHARACTERS_TO_FAVORITE,
     payload: char
   };
 };
 
-const actionFavoriteCharactersLocalStorageLoad = () => {
+export const actionFavoriteCharactersLocalStorageLoad = () => {
 
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
 
   return {
-    type: 'CHARACTERS_FAVORITE_LOCAL_STORAGE_LOAD',
+    type: FAVORITE_CHARACTERS_LOCAL_STORAGE_LOAD,
     payload: favoriteCharacters
   };
 };
 
-const actionRemoveFromFavorite = (favoriteCharacters) => {
+export const actionRemoveFromFavorite = (favoriteCharacters) => {
 
   localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
 
@@ -55,36 +57,25 @@ const actionRemoveFromFavorite = (favoriteCharacters) => {
   if (itemsLocalStorage.length === 0) localStorage.removeItem('favoriteCharacters');
 
   return {
-    type: 'REMOVE_FROM_FAVORITE',
+    type: REMOVE_CHARACTERS_FROM_FAVORITE,
     payload: favoriteCharacters
   };
 };
 
-const actionFilterFavorite = (favoriteCharacters) => {
+export const actionFilterFavorite = (favoriteCharacters) => {
 
   localStorage.setItem('favoriteCharacters', JSON.stringify(favoriteCharacters));
 
   return {
-    type: 'FILTER_FAVORITE_LOCATIONS',
+    type: FILTER_FAVORITE_CHARACTERS,
     payload: favoriteCharacters
   };
 };
 
-const actionCharactersError = (error) => {
+export const actionCharactersError = (error) => {
   return {
-    type: 'CHARACTERS_ERROR',
+    type: CHARACTERS_ERROR,
     payload: error
   };
 };
 
-export {
-  actionCharactersRequest,
-  actionCharactersLoad,
-  actionSetQuantityPages,
-  actionSetSelectedPage,
-  actionAddToFavorite,
-  actionRemoveFromFavorite,
-  actionFilterFavorite,
-  actionFavoriteCharactersLocalStorageLoad,
-  actionCharactersError
-};

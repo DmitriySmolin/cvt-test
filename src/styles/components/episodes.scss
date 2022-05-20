@@ -103,35 +103,16 @@
     max-height: 5px;
 }
 
-@media (min-width: 426px) and (max-width: 768px) {
+@media (max-width: 768px) {
     .episode-btn {
-        margin-top: 13px;
-    }
+        width: 38%;
 
-    .episode-name {
-        font-size: 16px;
-    }
-
-    .episode-race-value {
-        font-size: 12px;
-    }
-
-    .episode-origin-value {
-        font-size: 12px;
-    }
-
-    .episode-location-value {
-        font-size: 12px;
-    }
-
-    .episode-gender-value {
-        font-size: 12px;
-    }
-
-    .episode-episode-value {
-        font-size: 12px;
+        button {
+            width: 100%;
+        }
     }
 }
+
 
 @media (max-width: 425px) {
     .episode-form {
@@ -168,7 +149,6 @@
     }
 
     .episode-btn {
-        width: 100%;
         width: 70%;
         bottom: 550px;
 
@@ -183,6 +163,37 @@
         }
     }
 }
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .episode-btn {
+        margin-top: 13px;
+    }
+
+    .episode-name {
+        font-size: 16px;
+    }
+
+    .episode-race-value {
+        font-size: 12px;
+    }
+
+    .episode-origin-value {
+        font-size: 12px;
+    }
+
+    .episode-location-value {
+        font-size: 12px;
+    }
+
+    .episode-gender-value {
+        font-size: 12px;
+    }
+
+    .episode-episode-value {
+        font-size: 12px;
+    }
+}
+
 
 @media (min-width: 1300px) {
     .episode-btn {
@@ -204,16 +215,6 @@
     .episode-btn {
         button {
             width: 60%;
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .episode-btn {
-        width: 38%;
-
-        button {
-            width: 100%;
         }
     }
 }

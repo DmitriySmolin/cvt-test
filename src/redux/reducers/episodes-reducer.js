@@ -1,3 +1,16 @@
+import {
+  ADD_EPISODES_TO_FAVORITE,
+  EPISODES_ERROR,
+  EPISODES_LOAD,
+  EPISODES_REQUEST,
+  FAVORITE_EPISODES_LOCAL_STORAGE_LOAD,
+  FILTER_FAVORITE_EPISODES,
+  REMOVE_EPISODES_FROM_FAVORITE,
+  SET_EPISODES_CHARACTERS,
+  SET_QUANTITY_PAGES,
+  SET_SELECTED_PAGE,
+} from '../action-types/action-types';
+
 const initialState = {
   episodes: [],
   favoriteEpisodes: [],
@@ -5,74 +18,72 @@ const initialState = {
   quantityPages: null,
   selectPage: 0,
   loading: true,
-  error: null
+  error: null,
 };
 
-const episodesReducer = (state = initialState, action) => {
-
-  switch (action.type) {
-    case 'EPISODES_REQUEST':
+const episodesReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case EPISODES_REQUEST:
       return {
         ...state,
         episodes: [],
         loading: true,
-        error: null
+        error: null,
       };
-    case 'EPISODES_LOAD':
+    case EPISODES_LOAD:
       return {
         ...state,
-        episodes: action.payload,
-        loading: false,
-        error: null
-      };
-    case 'SET_QUANTITY_PAGES':
-      return {
-        ...state,
-        quantityPages: action.payload
-      };
-    case 'SET_SELECTED_PAGE':
-      return {
-        ...state,
-        selectPage: action.payload
-      };
-    case 'ADD_TO_FAVORITE':
-      return {
-        ...state,
-        favoriteEpisodes: [...state.favoriteEpisodes, action.payload],
-        loading: false,
-        error: null
-      };
-      case 'REMOVE_FROM_FAVORITE':
-        return {
-          ...state,
-          favoriteEpisodes: action.payload
-        }
-      case 'FILTER_FAVORITE_EPISODES':
-        return {
-          ...state,
-          favoriteEpisodes: action.payload
-        }
-    case 'FAVORITE_EPISODES_LOCAL_STORAGE_LOAD':
-      return {
-        ...state,
-        favoriteEpisodes: action.payload,
+        episodes: payload,
         loading: false,
         error: null,
       };
-    case 'SET_EPISODES_CHARACTERS':
+    case SET_QUANTITY_PAGES:
       return {
         ...state,
-        episodeCharacters: action.payload,
+        quantityPages: payload,
+      };
+    case SET_SELECTED_PAGE:
+      return {
+        ...state,
+        selectPage: payload,
+      };
+    case ADD_EPISODES_TO_FAVORITE:
+      return {
+        ...state,
+        favoriteEpisodes: [...state.favoriteEpisodes, payload],
         loading: false,
         error: null,
       };
-    case 'EPISODES_ERROR':
+    case REMOVE_EPISODES_FROM_FAVORITE:
+      return {
+        ...state,
+        favoriteEpisodes: payload,
+      };
+    case FILTER_FAVORITE_EPISODES:
+      return {
+        ...state,
+        favoriteEpisodes: payload,
+      };
+    case FAVORITE_EPISODES_LOCAL_STORAGE_LOAD:
+      return {
+        ...state,
+        favoriteEpisodes: payload,
+        loading: false,
+        error: null,
+      };
+    case SET_EPISODES_CHARACTERS:
+      return {
+        ...state,
+        episodeCharacters: payload,
+        loading: false,
+        error: null,
+      };
+    case EPISODES_ERROR:
       return {
         episodes: [],
         loading: false,
-        error: action.payload
+        error: payload,
       };
-
     default:
       return state;
   }

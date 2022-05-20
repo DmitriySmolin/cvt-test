@@ -1,5 +1,4 @@
 import React from 'react';
-import './register.scss';
 import Button from '../UI/button';
 import Input from '../UI/input';
 import {connect} from 'react-redux';

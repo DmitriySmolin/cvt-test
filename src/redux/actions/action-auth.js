@@ -1,4 +1,4 @@
-const actionAuth = (email, password, isLogin, remember) => {
+export const actionAuth = (email, password, isLogin, remember) => {
   return async dispatch => {
     const authData = {
       email,
@@ -43,7 +43,7 @@ const actionAuth = (email, password, isLogin, remember) => {
   };
 };
 
-const actionAutoLogout = (time) => {
+export const actionAutoLogout = (time) => {
   return dispatch => {
     setTimeout(() => {
       dispatch(actionAuthLogout());
@@ -51,7 +51,7 @@ const actionAutoLogout = (time) => {
   };
 };
 
-const actionAuthLogout = () => {
+export const actionAuthLogout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('userId');
   localStorage.removeItem('expirationDate');
@@ -62,7 +62,7 @@ const actionAuthLogout = () => {
 };
 
 
-const actionAutoLogin = () => {
+export const actionAutoLogin = () => {
   return dispatch => {
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
@@ -80,24 +80,17 @@ const actionAutoLogin = () => {
   };
 };
 
-const actionAuthSuccess = (token, email) => {
+export const actionAuthSuccess = (token, email) => {
   return {
     type: 'AUTH_SUCCESS',
     payload: {token, email}
   };
 };
 
-const actionAuthFailure = (error) => {
+export const actionAuthFailure = (error) => {
   return {
     type: 'AUTH_FAILURE',
     payload: error,
   };
 };
 
-export {
-  actionAuth,
-  actionAuthSuccess,
-  actionAutoLogout,
-  actionAuthLogout,
-  actionAutoLogin
-};

@@ -1,5 +1,4 @@
 import React from 'react';
-import './auth.scss';
 import {Navigate} from 'react-router-dom';
 import Button from '../UI/button';
 import Input from '../UI/input';

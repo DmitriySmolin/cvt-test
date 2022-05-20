@@ -1,5 +1,4 @@
 import React from 'react';
-import './app.module.scss';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from '../header';
 import {connect} from 'react-redux';

@@ -1,70 +1,80 @@
+import {
+  ADD_LOCATIONS_TO_FAVORITE,
+  FAVORITE_LOCATIONS_LOCAL_STORAGE_LOAD,
+  FILTER_FAVORITE_LOCATIONS,
+  LOCATIONS_ERROR,
+  LOCATIONS_LOAD,
+  LOCATIONS_REQUEST,
+  REMOVE_LOCATIONS_FROM_FAVORITE,
+  SET_QUANTITY_PAGES,
+  SET_SELECTED_PAGE,
+} from '../action-types/action-types';
+
 const initialState = {
   locations: [],
   favoriteLocations: [],
   quantityPages: null,
   selectPage: 0,
   loading: true,
-  error: null
+  error: null,
 };
 
-const locationsReducer = (state = initialState, action) => {
-
-  switch (action.type) {
-    case 'LOCATIONS_REQUEST':
+const locationsReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case LOCATIONS_REQUEST:
       return {
         ...state,
         locations: [],
         loading: true,
-        error: null
+        error: null,
       };
-    case 'LOCATIONS_LOAD':
+    case LOCATIONS_LOAD:
       return {
         ...state,
-        locations: action.payload,
-        loading: false,
-        error: null
-      };
-    case 'SET_QUANTITY_PAGES':
-      return {
-        ...state,
-        quantityPages: action.payload
-      };
-    case 'SET_SELECTED_PAGE':
-      return {
-        ...state,
-        selectPage: action.payload
-      };
-    case 'ADD_TO_FAVORITE':
-      return {
-        ...state,
-        favoriteLocations: [...state.favoriteLocations, action.payload],
-        loading: false,
-        error: null
-      };
-    case 'REMOVE_FROM_FAVORITE':
-      return {
-        ...state,
-        favoriteLocations: action.payload
-      }
-    case 'FILTER_FAVORITE_LOCATIONS':
-      return {
-        ...state,
-        favoriteLocations: action.payload
-      }
-    case 'FAVORITE_LOCATIONS_LOCAL_STORAGE_LOAD':
-      return {
-        ...state,
-        favoriteLocations: action.payload,
+        locations: payload,
         loading: false,
         error: null,
       };
-    case 'LOCATIONS_ERROR':
+    case SET_QUANTITY_PAGES:
+      return {
+        ...state,
+        quantityPages: payload,
+      };
+    case SET_SELECTED_PAGE:
+      return {
+        ...state,
+        selectPage: payload,
+      };
+    case ADD_LOCATIONS_TO_FAVORITE:
+      return {
+        ...state,
+        favoriteLocations: [...state.favoriteLocations, payload],
+        loading: false,
+        error: null,
+      };
+    case REMOVE_LOCATIONS_FROM_FAVORITE:
+      return {
+        ...state,
+        favoriteLocations: payload,
+      };
+    case FILTER_FAVORITE_LOCATIONS:
+      return {
+        ...state,
+        favoriteLocations: payload,
+      };
+    case FAVORITE_LOCATIONS_LOCAL_STORAGE_LOAD:
+      return {
+        ...state,
+        favoriteLocations: payload,
+        loading: false,
+        error: null,
+      };
+    case LOCATIONS_ERROR:
       return {
         locations: [],
         loading: false,
-        error: action.payload
+        error: payload,
       };
-
     default:
       return state;
   }

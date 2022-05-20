@@ -1,70 +1,80 @@
+import {
+  ADD_CHARACTERS_TO_FAVORITE,
+  CHARACTERS_ERROR,
+  CHARACTERS_LOAD,
+  CHARACTERS_REQUEST,
+  FAVORITE_CHARACTERS_LOCAL_STORAGE_LOAD,
+  FILTER_FAVORITE_CHARACTERS,
+  REMOVE_CHARACTERS_FROM_FAVORITE,
+  SET_QUANTITY_PAGES,
+  SET_SELECTED_PAGE,
+} from '../action-types/action-types';
+
 const initialState = {
   characters: [],
   favoriteCharacters: [],
   quantityPages: null,
   selectPage: 0,
   loading: true,
-  error: null
+  error: null,
 };
 
-const charactersReducer = (state = initialState, action) => {
-
-  switch (action.type) {
-    case 'CHARACTERS_REQUEST':
+const charactersReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case CHARACTERS_REQUEST:
       return {
         ...state,
         characters: [],
         loading: true,
-        error: null
+        error: null,
       };
-    case 'CHARACTERS_LOAD':
+    case CHARACTERS_LOAD:
       return {
         ...state,
-        characters: action.payload,
-        loading: false,
-        error: null
-      };
-    case 'SET_QUANTITY_PAGES':
-      return {
-        ...state,
-        quantityPages: action.payload
-      };
-    case 'SET_SELECTED_PAGE':
-      return {
-        ...state,
-        selectPage: action.payload
-      };
-    case 'ADD_TO_FAVORITE':
-      return {
-        ...state,
-        favoriteCharacters: [...state.favoriteCharacters, action.payload],
-        loading: false,
-        error: null
-      };
-    case 'REMOVE_FROM_FAVORITE':
-      return {
-        ...state,
-        favoriteCharacters: action.payload
-      };
-    case 'FILTER_FAVORITE_LOCATIONS':
-      return {
-        ...state,
-        favoriteCharacters: action.payload
-      };
-    case 'CHARACTERS_FAVORITE_LOCAL_STORAGE_LOAD':
-      return {
-        ...state,
-        favoriteCharacters: action.payload,
+        characters: payload,
         loading: false,
         error: null,
       };
-    case 'CHARACTERS_ERROR':
+    case SET_QUANTITY_PAGES:
+      return {
+        ...state,
+        quantityPages: payload,
+      };
+    case SET_SELECTED_PAGE:
+      return {
+        ...state,
+        selectPage: payload,
+      };
+    case ADD_CHARACTERS_TO_FAVORITE:
+      return {
+        ...state,
+        favoriteCharacters: [...state.favoriteCharacters, payload],
+        loading: false,
+        error: null,
+      };
+    case REMOVE_CHARACTERS_FROM_FAVORITE:
+      return {
+        ...state,
+        favoriteCharacters: payload,
+      };
+    case FILTER_FAVORITE_CHARACTERS:
+      return {
+        ...state,
+        favoriteCharacters: payload,
+      };
+    case FAVORITE_CHARACTERS_LOCAL_STORAGE_LOAD:
+      return {
+        ...state,
+        favoriteCharacters: payload,
+        loading: false,
+        error: null,
+      };
+    case CHARACTERS_ERROR:
       return {
         characters: [],
         loading: false,
-        error: action.payload
+        error: payload,
       };
-
     default:
       return state;
   }

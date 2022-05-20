@@ -1,43 +1,54 @@
-const actionEpisodesRequest = () => {
+import {
+  ADD_EPISODES_TO_FAVORITE,
+  EPISODES_ERROR,
+  EPISODES_LOAD,
+  EPISODES_REQUEST,
+  FAVORITE_EPISODES_LOCAL_STORAGE_LOAD,
+  FILTER_FAVORITE_EPISODES,
+  REMOVE_EPISODES_FROM_FAVORITE,
+  SET_EPISODES_CHARACTERS,
+  SET_QUANTITY_PAGES,
+  SET_SELECTED_PAGE,
+} from '../action-types/action-types';
+
+export const actionEpisodesRequest = () => {
   return {
-    type: 'EPISODES_REQUEST'
+    type: EPISODES_REQUEST,
   };
 };
 
-const actionEpisodesLoad = (newEpisodes) => {
+export const actionEpisodesLoad = (newEpisodes) => {
   return {
-    type: 'EPISODES_LOAD',
-    payload: newEpisodes
+    type: EPISODES_LOAD,
+    payload: newEpisodes,
   };
 };
 
-const actionSetQuantityPages = (quantityPages) => {
+export const actionSetQuantityPages = (quantityPages) => {
   return {
-    type: 'SET_QUANTITY_PAGES',
-    payload: quantityPages
+    type: SET_QUANTITY_PAGES,
+    payload: quantityPages,
   };
 };
 
-const actionSetSelectedPage = (selectPage) => {
+export const actionSetSelectedPage = (selectPage) => {
   return {
-    type: 'SET_SELECTED_PAGE',
-    payload: selectPage
+    type: SET_SELECTED_PAGE,
+    payload: selectPage,
   };
 };
 
-const actionAddToFavorite = (episodes, episode) => {
-
+export const actionAddToFavorite = (episodes, episode) => {
   const favoriteEpisodes = JSON.parse(localStorage.getItem('favoriteEpisodes')) || [];
   localStorage.setItem('favoriteEpisodes', JSON.stringify([...favoriteEpisodes, episode]));
 
   return {
-    type: 'ADD_TO_FAVORITE',
-    payload: episode
+    type: ADD_EPISODES_TO_FAVORITE,
+    payload: episode,
   };
 };
 
-const actionRemoveFromFavorite = (favoriteEpisodes) => {
-
+export const actionRemoveFromFavorite = (favoriteEpisodes) => {
   localStorage.setItem('favoriteEpisodes', JSON.stringify(favoriteEpisodes));
 
   let itemsLocalStorage = JSON.parse(localStorage.getItem('favoriteEpisodes'));
@@ -45,54 +56,39 @@ const actionRemoveFromFavorite = (favoriteEpisodes) => {
   if (itemsLocalStorage.length === 0) localStorage.removeItem('favoriteEpisodes');
 
   return {
-    type: 'REMOVE_FROM_FAVORITE',
-    payload: favoriteEpisodes
+    type: REMOVE_EPISODES_FROM_FAVORITE,
+    payload: favoriteEpisodes,
   };
 };
 
-const actionFilterFavorite = (favoriteEpisodes) => {
-
+export const actionFilterFavorite = (favoriteEpisodes) => {
   localStorage.setItem('favoriteEpisodes', JSON.stringify(favoriteEpisodes));
 
   return {
-    type: 'FILTER_FAVORITE_EPISODES',
-    payload: favoriteEpisodes
+    type: FILTER_FAVORITE_EPISODES,
+    payload: favoriteEpisodes,
   };
 };
 
-const actionFavoriteEpisodesLocalStorageLoad = () => {
-
+export const actionFavoriteEpisodesLocalStorageLoad = () => {
   const favoriteEpisodes = JSON.parse(localStorage.getItem('favoriteEpisodes')) || [];
 
   return {
-    type: 'FAVORITE_EPISODES_LOCAL_STORAGE_LOAD',
-    payload: favoriteEpisodes
+    type: FAVORITE_EPISODES_LOCAL_STORAGE_LOAD,
+    payload: favoriteEpisodes,
   };
 };
 
-const actionSetEpisodeCharacters = (episodeCharacters) => {
+export const actionSetEpisodeCharacters = (episodeCharacters) => {
   return {
-    type: 'SET_EPISODES_CHARACTERS',
-    payload: episodeCharacters
+    type: SET_EPISODES_CHARACTERS,
+    payload: episodeCharacters,
   };
 };
 
-const actionEpisodesError = (error) => {
+export const actionEpisodesError = (error) => {
   return {
-    type: 'EPISODES_ERROR',
-    payload: error
+    type: EPISODES_ERROR,
+    payload: error,
   };
-};
-
-export {
-  actionEpisodesRequest,
-  actionEpisodesLoad,
-  actionSetQuantityPages,
-  actionSetSelectedPage,
-  actionAddToFavorite,
-  actionRemoveFromFavorite,
-  actionFilterFavorite,
-  actionFavoriteEpisodesLocalStorageLoad,
-  actionSetEpisodeCharacters,
-  actionEpisodesError
 };
