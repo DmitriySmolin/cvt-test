@@ -7,7 +7,7 @@ import {
   LOCATIONS_REQUEST,
   REMOVE_LOCATIONS_FROM_FAVORITE,
   SET_QUANTITY_PAGES,
-  SET_SELECTED_PAGE,
+  SELECTED_PAGE_LOCATIONS,
 } from '../action-types/action-types';
 
 const initialState = {
@@ -40,7 +40,7 @@ const locationsReducer = (state = initialState, { type, payload }) => {
         ...state,
         quantityPages: payload,
       };
-    case SET_SELECTED_PAGE:
+    case SELECTED_PAGE_LOCATIONS:
       return {
         ...state,
         selectPage: payload,

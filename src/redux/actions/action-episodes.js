@@ -8,7 +8,7 @@ import {
   REMOVE_EPISODES_FROM_FAVORITE,
   SET_EPISODES_CHARACTERS,
   SET_QUANTITY_PAGES,
-  SET_SELECTED_PAGE,
+  SELECTED_PAGE_EPISODES,
 } from '../action-types/action-types';
 
 export const actionEpisodesRequest = () => {
@@ -33,7 +33,7 @@ export const actionSetQuantityPages = (quantityPages) => {
 
 export const actionSetSelectedPage = (selectPage) => {
   return {
-    type: SET_SELECTED_PAGE,
+    type: SELECTED_PAGE_EPISODES,
     payload: selectPage,
   };
 };

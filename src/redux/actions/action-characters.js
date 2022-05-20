@@ -7,7 +7,7 @@ import {
   FILTER_FAVORITE_CHARACTERS,
   REMOVE_CHARACTERS_FROM_FAVORITE,
   SET_QUANTITY_PAGES,
-  SET_SELECTED_PAGE,
+  SELECTED_PAGE_CHARACTERS,
 } from '../action-types/action-types';
 
 export const actionCharactersRequest = () => {
@@ -32,12 +32,12 @@ export const actionSetQuantityPages = (quantityPages) => {
 
 export const actionSetSelectedPage = (selectPage) => {
   return {
-    type: SET_SELECTED_PAGE,
+    type: SELECTED_PAGE_CHARACTERS,
     payload: selectPage,
   };
 };
 
-export const actionAddToFavorite = (characters, char) => {
+export const actionAddToFavorite = (char) => {
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
   localStorage.setItem('favoriteCharacters', JSON.stringify([...favoriteCharacters, char]));
 

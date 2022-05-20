@@ -7,7 +7,7 @@ import {
   LOCATIONS_REQUEST,
   REMOVE_LOCATIONS_FROM_FAVORITE,
   SET_QUANTITY_PAGES,
-  SET_SELECTED_PAGE,
+  SELECTED_PAGE_LOCATIONS,
 } from '../action-types/action-types';
 
 export const actionLocationsRequest = () => {
@@ -32,7 +32,7 @@ export const actionSetQuantityPages = (quantityPages) => {
 
 export const actionSetSelectedPage = (selectPage) => {
   return {
-    type: SET_SELECTED_PAGE,
+    type: SELECTED_PAGE_LOCATIONS,
     payload: selectPage,
   };
 };

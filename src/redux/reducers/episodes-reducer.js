@@ -8,7 +8,7 @@ import {
   REMOVE_EPISODES_FROM_FAVORITE,
   SET_EPISODES_CHARACTERS,
   SET_QUANTITY_PAGES,
-  SET_SELECTED_PAGE,
+  SELECTED_PAGE_EPISODES,
 } from '../action-types/action-types';
 
 const initialState = {
@@ -42,7 +42,7 @@ const episodesReducer = (state = initialState, { type, payload }) => {
         ...state,
         quantityPages: payload,
       };
-    case SET_SELECTED_PAGE:
+    case SELECTED_PAGE_EPISODES:
       return {
         ...state,
         selectPage: payload,

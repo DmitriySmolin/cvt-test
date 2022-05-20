@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Input from '../UI/input';
 import Button from '../UI/button';
 import Select from '../UI/select';
@@ -37,10 +37,9 @@ class CharactersList extends React.Component {
     window.addEventListener('resize', this.resize.bind(this));
     this.resize();
 
-    localStorage.getItem('status') && this.setState({status: localStorage.getItem('status')});
-    localStorage.getItem('isActiveList') && this.setState({isActiveList: localStorage.getItem('isActiveList')});
+    localStorage.getItem('status') && this.setState({ status: localStorage.getItem('status') });
+    localStorage.getItem('isActiveList') && this.setState({ isActiveList: localStorage.getItem('isActiveList') });
   }
-
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.resize.bind(this));
@@ -49,7 +48,7 @@ class CharactersList extends React.Component {
   resize() {
     let currentHideNav = window.innerWidth <= 450;
     if (currentHideNav !== this.state.hideNav) {
-      this.setState({hideNav: currentHideNav});
+      this.setState({ hideNav: currentHideNav });
     }
   }
 
@@ -59,23 +58,23 @@ class CharactersList extends React.Component {
   };
 
   onSelectChangeHandler = (event) => {
-    this.setState({status: event.target.value});
+    this.setState({ status: event.target.value });
     localStorage.setItem('status', event.target.value);
   };
 
   onChangeHandler = (event, controlName) => {
-    const formFilters = {...this.state.formFilters};
-    const control = {...formFilters[controlName]};
+    const formFilters = { ...this.state.formFilters };
+    const control = { ...formFilters[controlName] };
     control.value = event.target.value;
 
     formFilters[controlName] = control;
 
-    this.setState({formFilters});
+    this.setState({ formFilters });
   };
 
   onKeyPressHandler = (event) => {
     const {
-      formFilters: {name, race},
+      formFilters: { name, race },
       status,
     } = this.state;
 
@@ -87,7 +86,7 @@ class CharactersList extends React.Component {
   };
 
   addToFavoriteHandler = (id) => {
-    const {characters, addToFavorite} = this.props;
+    const { characters, addToFavorite } = this.props;
 
     const char = characters.find((char) => char.id === id);
 
@@ -100,7 +99,7 @@ class CharactersList extends React.Component {
   };
 
   renderInputs = () => {
-    const {formFilters} = this.state;
+    const { formFilters } = this.state;
 
     return Object.keys(formFilters).map((controlName, index) => {
       const control = formFilters[controlName];
@@ -148,17 +147,11 @@ class CharactersList extends React.Component {
   };
 
   choiceStatusCharacter = (status) => {
-    return status === 'Alive'
-      ? dotGreen
-      : status === 'Dead'
-        ? dotRed
-        : status === 'unknown'
-          ? dotYellow
-          : '';
+    return status === 'Alive' ? dotGreen : status === 'Dead' ? dotRed : status === 'unknown' ? dotYellow : '';
   };
   renderListItemCharacters = () => {
     return this.props.characters.map((char) => {
-      const {...itemProps} = char;
+      const { ...itemProps } = char;
 
       return (
         <CharactersListItem
@@ -176,7 +169,7 @@ class CharactersList extends React.Component {
 
   renderPagination = () => {
     const {
-      formFilters: {name, race},
+      formFilters: { name, race },
       status,
     } = this.state;
     let pageRangeDisplayed = 5;
@@ -195,18 +188,14 @@ class CharactersList extends React.Component {
           breakLabel=""
           nextLabel={`Следующая`}
           previousLabel="Предыдущая"
-          containerClassName={
-            'pagination align-items-center justify-content-center'
-          }
+          containerClassName={'pagination align-items-center justify-content-center'}
           pageClassName={'page-item'}
           pageLinkClassName={'page-link'}
           previousClassName={'prev-item page-item'}
           previousLinkClassName={'prev-link page-link'}
           nextClassName={'next-item page-item'}
           nextLinkClassName={'next-link page-link'}
-          onPageChange={(data) =>
-            this.props.handlePageClick(data, name, race, status)
-          }
+          onPageChange={(data) => this.props.handlePageClick(data, name, race, status)}
           breakClassName={'page-item'}
           breakLinkClassName={'page-link'}
           activeClassName={'active-page'}
@@ -216,13 +205,13 @@ class CharactersList extends React.Component {
   };
 
   render() {
-    const {isActiveList} = this.state;
+    const { isActiveList } = this.state;
 
     return (
       <main className="main character-main row mt-5 ">
         <NavLink to="/" className="col-md-5 col-sm-12">
           <Button type="back-btn">
-            <img src={backBtn} alt="back-btn"/>
+            <img src={backBtn} alt="back-btn" />
             <span className="mx-2">Назад</span>
           </Button>
         </NavLink>
@@ -237,21 +226,19 @@ class CharactersList extends React.Component {
             <div className="view-buttons d-flex gap-3 justify-content-end">
               <div
                 onClick={() => {
-                  this.setState({isActiveList: 'list'});
+                  this.setState({ isActiveList: 'list' });
                   localStorage.setItem('isActiveList', 'list');
-                }
-                }
+                }}
               >
-                <img src={isActiveList === 'list' ? listActive : list} alt="list"/>
+                <img src={isActiveList === 'list' ? listActive : list} alt="list" />
               </div>
               <div
                 onClick={() => {
-                  this.setState({isActiveList: null});
+                  this.setState({ isActiveList: null });
                   localStorage.setItem('isActiveList', null);
-                }
-                }
+                }}
               >
-                <img src={isActiveList === 'list' ? grid : gridActive} alt="grid"/>
+                <img src={isActiveList === 'list' ? grid : gridActive} alt="grid" />
               </div>
             </div>
           </div>

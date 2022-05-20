@@ -7,7 +7,7 @@ import {
   FILTER_FAVORITE_CHARACTERS,
   REMOVE_CHARACTERS_FROM_FAVORITE,
   SET_QUANTITY_PAGES,
-  SET_SELECTED_PAGE,
+  SELECTED_PAGE_CHARACTERS,
 } from '../action-types/action-types';
 
 const initialState = {
@@ -40,10 +40,10 @@ const charactersReducer = (state = initialState, { type, payload }) => {
         ...state,
         quantityPages: payload,
       };
-    case SET_SELECTED_PAGE:
+    case SELECTED_PAGE_CHARACTERS:
       return {
         ...state,
-        selectPage: payload,
+        selectPageCharacters: payload,
       };
     case ADD_CHARACTERS_TO_FAVORITE:
       return {
