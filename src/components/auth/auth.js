@@ -1,16 +1,11 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import Button from '../UI/button';
 import Input from '../UI/input';
-import { connect } from 'react-redux';
-import { actionAuth } from '../../redux/actions/action-auth';
+import {connect} from 'react-redux';
+import {actionAuth} from '../../redux/actions/action-auth';
 import Modal from '../UI/modal';
-
-function validateEmail(email) {
-  return email.match(
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  );
-}
+import {validateControl, validateEmail, validatePassword} from '../../helpers/helpers';
 
 class Auth extends React.Component {
   state = {
@@ -25,7 +20,7 @@ class Auth extends React.Component {
         valid: false,
         touched: false,
         required: true,
-        pattern: '([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})',
+        title: 'E-mail должен быть определенного формата, длина не менее 6 и не более 50 символов',
         validation: {
           required: true,
           email: true,
@@ -39,10 +34,13 @@ class Auth extends React.Component {
         valid: false,
         touched: false,
         required: true,
+        title: 'Пароль должен содержать символы верхнего регистра (A-Z), нижнего регистра (a-z), и цифры (0-9), длина не менее 6 и не более 50 символов',
         validation: {
           required: true,
-          minLength: 6,
+          password: true,
         },
+        hidePassword: true,
+        eye: true
       },
       checkbox: {
         type: 'checkbox',
@@ -52,54 +50,23 @@ class Auth extends React.Component {
   };
 
   loginHandler = () => {
-    const {
-      formControls: { email, password },
-      remember,
-    } = this.state;
-    const { auth } = this.props;
+    const {formControls: {email, password}, remember,} = this.state;
 
     this.props.auth(email.value, password.value, true, remember);
-  };
-
-  registerHandler = () => {
-    const { email, password } = this.state;
-    this.props.auth(email.value, password.value, false);
   };
 
   submitHandler = (event) => {
     event.preventDefault();
   };
 
-  validateControl = (value, validation) => {
-    if (!validation) {
-      return true;
-    }
-
-    let isValid = true;
-
-    if (validation.required) {
-      isValid = value.trim() !== '' && isValid;
-    }
-
-    if (validation.email) {
-      isValid = validateEmail(value) && isValid;
-    }
-
-    if (validation.minLength) {
-      isValid = value.length >= validation.minLength && isValid;
-    }
-
-    return isValid;
-  };
-
   onChangeHandler = (event, controlName) => {
-    const formControls = { ...this.state.formControls };
-    const control = { ...formControls[controlName] };
+    const formControls = {...this.state.formControls};
+    const control = {...formControls[controlName]};
 
     control.remember = event.target.checked;
     control.value = event.target.value;
     control.touched = true;
-    control.valid = this.validateControl(control.value, control.validation);
+    control.valid = validateControl(control.value, control.validation);
 
     formControls[controlName] = control;
 
@@ -115,8 +82,25 @@ class Auth extends React.Component {
     });
   };
 
+  onClickHandler = (event, controlName) => {
+
+    const formControls = {...this.state.formControls};
+    const control = {...formControls[controlName]};
+
+    if (controlName === 'password') {
+      control.type === 'text' ? control.type = 'password' : control.type = 'text';
+      control.hidePassword = !control.hidePassword;
+    }
+
+    formControls[controlName] = control;
+
+    this.setState({
+      formControls,
+    });
+  };
+
   renderInputs() {
-    const { formControls } = this.state;
+    const {formControls} = this.state;
 
     return Object.keys(formControls).map((controlName, index) => {
       const control = formControls[controlName];
@@ -133,19 +117,22 @@ class Auth extends React.Component {
           label={control.label}
           shouldValidate={!!control.validation}
           errorMessage={control.errorMessage}
+          hidePassword={control.hidePassword}
+          eye={control.eye}
           remeber={control.remember}
           onChange={(event) => this.onChangeHandler(event, controlName)}
+          onClick={(event) => this.onClickHandler(event, controlName)}
         />
       );
     });
   }
 
   render() {
-    const { isAuth, error } = this.props;
+    const {isAuth, error} = this.props;
     return (
       <React.Fragment>
         {isAuth ? (
-          <Navigate to="/" />
+          <Navigate to="/"/>
         ) : (
           <Modal>
             <form className="auth-form" onSubmit={this.submitHandler}>

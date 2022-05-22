@@ -1,9 +1,9 @@
 import React from 'react';
-import FavoriteCharactersListItem from './favorie-characters-list-item';
+import FavoriteCharactersListItem from './favorite-characters-list-item';
 import dotGreen from '../../assets/icons/dot-green.svg';
 import dotRed from '../../assets/icons/dot-red.svg';
 import dotYellow from '../../assets/icons/dot-yellow.svg';
-import { sortArray } from '../../helpers/helpers';
+import {sortArray} from '../../helpers/helpers';
 
 class FavoriteCharactersList extends React.Component {
   state = {
@@ -11,7 +11,7 @@ class FavoriteCharactersList extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ filterCharacters: localStorage.getItem('filterCharacters') });
+    this.setState({filterCharacters: localStorage.getItem('filterCharacters')});
   }
 
   choiceStatusCharacter = (status) => {
@@ -19,7 +19,7 @@ class FavoriteCharactersList extends React.Component {
   };
 
   removeFromFavoriteHandler = (id) => {
-    const { favoriteCharacters, removeFromFavorite } = this.props;
+    const {favoriteCharacters, removeFromFavorite} = this.props;
 
     let filteredFavoriteCharacters = favoriteCharacters.filter((character) => character.id !== id);
 
@@ -27,7 +27,7 @@ class FavoriteCharactersList extends React.Component {
   };
 
   filterFavoriteCharactersHandler = (key, key2) => {
-    this.setState({ filterCharacters: key });
+    this.setState({filterCharacters: key});
     localStorage.setItem('filterCharacters', key);
 
     const filteredFavoriteCharacters = this.props.favoriteCharacters.sort(sortArray(key, key2));
@@ -36,7 +36,7 @@ class FavoriteCharactersList extends React.Component {
   };
 
   render() {
-    const { favoriteCharacters } = this.props;
+    const {favoriteCharacters} = this.props;
 
     if (favoriteCharacters.length === 0) {
       return (
@@ -73,7 +73,7 @@ class FavoriteCharactersList extends React.Component {
         </div>
         <div className="row row-cols-md-4 col-md-12">
           {favoriteCharacters.map((character) => {
-            const { ...itemProps } = character;
+            const {...itemProps} = character;
             return (
               <FavoriteCharactersListItem
                 key={character.id}

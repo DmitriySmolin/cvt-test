@@ -1,213 +1,214 @@
 @import "../../styles/variable";
 
 .location-main {
-    .row {
-        --bs-gutter-x: 0rem;
-    }
+  .row {
+    --bs-gutter-x: 0rem;
+  }
 }
 
 .location-body {
-    padding: 1rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .location-card {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 0;
 
-    .card-body {
-        min-height: 191px;
-    }
+  .card-body {
+    min-height: 191px;
+  }
 }
 
 .location-icon {
-    width: 90%;
-    height: 100%;
-    border-radius: 4px 0px 0px 4px;
+  width: 90%;
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
 }
 
 .location-name {
-    font-family: "Montserrat-Bold";
-    font-weight: 700;
-    font-size: 35px;
-    max-width: 422px;
+  font-family: "Montserrat-Bold";
+  font-weight: 700;
+  font-size: 35px;
+  max-width: 422px;
 }
 
 .location-type {
-    font-family: 'Montserrat-Regular';
-    font-weight: 400;
-    font-size: 14px;
-    color: $color6;
+  font-family: 'Montserrat-Regular';
+  font-weight: 400;
+  font-size: 14px;
+  color: $color6;
 }
 
 .location-dimension {
-    font-family: 'Montserrat-Regular';
-    font-weight: 400;
-    font-size: 14px;
-    color: $color6;
+  font-family: 'Montserrat-Regular';
+  font-weight: 400;
+  font-size: 14px;
+  color: $color6;
 }
 
 .location-count-characters {
-    font-family: 'Montserrat-Regular';
-    font-weight: 400;
-    font-size: 14px;
-    color: $color6;
+  font-family: 'Montserrat-Regular';
+  font-weight: 400;
+  font-size: 14px;
+  color: $color6;
 }
 
 .location-type-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .location-dimension-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .location-count-characters-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
-    font-size: 36px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 36px;
 }
 
 .favorite-location-btn {
-    position: relative;
-    width: 0;
-    -moz-user-select: none;
-    -o-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+  position: relative;
+  width: 0;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 
-    button {
-        bottom: 38px;
-        right: 7px;
-    }
+  button {
+    bottom: 38px;
+    right: 7px;
+  }
 }
 
 @media (min-width: 1440px) {
-    .favorite-location-btn {
-        button {
-            right: -178px;
-        }
+  .favorite-location-btn {
+    button {
+      right: -160px;
     }
+  }
 }
 
 @media (max-width: 1439px) {
-    .favorite-location-btn {
-        button {
-            right: -88px;
-        }
+  .favorite-location-btn {
+    button {
+      right: -88px;
     }
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
-    .is-favorite-location-icon {
-        right: 7px;
-    }
+  .is-favorite-location-icon {
+    right: 7px;
+  }
 
-    .favorite-location-btn {
-        button {
-            bottom: 34px;
-            right: 3px;
-        }
+  .favorite-location-btn {
+    button {
+      bottom: 101px;
+      left: 411px;
+      position: absolute;
     }
+  }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
-    .favorite-location-btn {
-        margin-top: 13px;
+  .favorite-location-btn {
+    margin-top: 13px;
 
-        button {
-            bottom: 154px;
-            right: -299px;
-        }
+    button {
+      bottom: 154px;
+      right: -282px;
     }
+  }
 
-    .location-name {
-        font-size: 16px;
-    }
+  .location-name {
+    font-size: 16px;
+  }
 
-    .location-type-value {
-        font-size: 12px;
-    }
+  .location-type-value {
+    font-size: 12px;
+  }
 
-    .location-dimension-value {
-        font-size: 12px;
-    }
+  .location-dimension-value {
+    font-size: 12px;
+  }
 
-    .location-count-characters-value {
-        font-size: 12px;
-    }
+  .location-count-characters-value {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 425px) {
-    .location-form {
-        flex-direction: column;
+  .location-form {
+    flex-direction: column;
+  }
+
+  .location-inputs {
+    flex-direction: column;
+
+    input {
+      margin-top: 0 !important;
+    }
+  }
+
+  .location-icon {
+    width: 100%;
+  }
+
+  .favorite-location-btn {
+    button {
+      bottom: 142px;
+      right: -186px;
     }
 
-    .location-inputs {
-        flex-direction: column;
+    width: 100%;
+  }
 
-        input {
-            margin-top: 0 !important;
-        }
-    }
+  .location-title {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+  }
 
-    .location-icon {
-        width: 100%;
-    }
+  .card-body {
+    padding: 1rem 1rem;
+  }
 
-    .favorite-location-btn {
-        button {
-            bottom: 142px;
-            right: -186px;
-        }
+  .location-name {
+    text-align: center;
+  }
 
-        width: 100%;
-    }
+  .text-xs-center {
+    text-align: center;
+  }
 
-    .location-title {
-        margin-top: 25px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .card-body {
-        padding: 1rem 1rem;
-    }
-
-    .location-name {
-        text-align: center;
-    }
-
-    .text-xs-center {
-        text-align: center;
-    }
-
-    .mx-sm-2 {
-        margin-left: 0 !important;
-    }
+  .mx-sm-2 {
+    margin-left: 0 !important;
+  }
 }
 
 @media (max-width: 375px) {
-    .favorite-location-btn {
-        button {
-            right: -174px;
-            bottom: 141px;
-        }
+  .favorite-location-btn {
+    button {
+      right: -174px;
+      bottom: 141px;
     }
+  }
 }
 
 @media (max-width: 320px) {
-    .favorite-location-btn {
-        button {
-            right: -141px;
-            bottom: 146px;
-        }
+  .favorite-location-btn {
+    button {
+      right: -141px;
+      bottom: 146px;
     }
+  }
 }

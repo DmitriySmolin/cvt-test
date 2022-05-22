@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './input.module.scss';
-
+import openEye from '../../../assets/icons/open-eye.svg';
+import hideEye from '../../../assets/icons/hide-eye.svg';
 
 const isInvalid = ({valid, touched, shouldValidate}) => {
   return !valid && shouldValidate && touched;
@@ -32,6 +33,14 @@ const Input = props => {
         onChange={props.onChange}
         onKeyPress={props.onKeyPress}
       />
+      {props.eye
+        &&
+        <img
+          className={classes.eye}
+          src={props.hidePassword ? hideEye : openEye}
+          alt={'eye'}
+          onClick={props.onClick}
+        />}
       {props.type === 'checkbox' && <span>Запомнить</span>}
       {isInvalid(props) && props.value !== '' && <span>{props.errorMessage || 'Введите верное значение'}</span>}
     </div>

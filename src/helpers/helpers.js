@@ -1,3 +1,34 @@
+export const validateEmail = (email) => {
+  return email.match(/^(?=.{6,50}@)[_a-z0-9-\+-]+((\.[_a-z0-9-]+))*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i
+  );
+};
+
+export const validatePassword = (password) => {
+  return password.match(/^(?=.{6,50})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/);
+};
+
+export const validateControl = (value, validation) => {
+  if (!validation) {
+    return true;
+  }
+
+  let isValid = true;
+
+  if (validation.required) {
+    isValid = value.trim() !== '' && isValid;
+  }
+
+  if (validation.email) {
+    isValid = validateEmail(value) && isValid;
+  }
+
+  if (validation.password) {
+    isValid = validatePassword(value) && isValid;
+  }
+
+  return isValid;
+};
+
 export const sortArray = (key, key2 = null) => {
   return (a, b) => {
     if (key2) {
@@ -25,3 +56,4 @@ export const isCheckFavorite = (oldItems = [], newItems = []) => {
 
   return newItems;
 };
+

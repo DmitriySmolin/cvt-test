@@ -1,4 +1,5 @@
 const actionRegister = (email, password) => {
+
   return async (dispatch) => {
     let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAxJxjeaCWXkupSy9aRd6HML5GEnMddF4U';
 

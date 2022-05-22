@@ -23,14 +23,13 @@
   margin-bottom: 40px;
 }
 
-
 .register-form {
   margin: 0 auto;
   background: $color10;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
   padding: 30px 20px;
   border-radius: 5px;
-  width: 120%;
+  width: 370px;
   height: 637px;
 }
 
@@ -50,14 +49,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 30px;
+  width: 70%;
   height: 49px;
   font-size: 17px;
-  font-weight: 400  ;
+  font-weight: 400;
 }
 
-@media (max-width: 768px) {
-  .register-form{
+.register-form img + span {
+  position: relative;
+  left: -22px;
+}
+
+@media (max-width: 425px) {
+  .register-form {
+    width: 100%;
+  }
+  .register-form button {
     width: 100%;
   }
 }

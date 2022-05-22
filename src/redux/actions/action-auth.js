@@ -18,7 +18,7 @@ export const actionAuth = (email, password, isLogin, remember) => {
 
       const data = await res.json();
       if (res.ok) {
-        console.log(data);
+
         const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000);
 
         if (remember) {

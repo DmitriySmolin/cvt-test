@@ -1,15 +1,10 @@
 import React from 'react';
 import Button from '../UI/button';
 import Input from '../UI/input';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Modal from '../UI/modal';
-import { actionRegister } from '../../redux/actions/action-register';
-
-function validateEmail(email) {
-  return email.match(
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  );
-}
+import {actionRegister} from '../../redux/actions/action-register';
+import {validateControl, validateEmail, validatePassword} from '../../helpers/helpers';
 
 class Register extends React.Component {
   state = {
@@ -23,7 +18,7 @@ class Register extends React.Component {
         valid: false,
         touched: false,
         required: true,
-        pattern: '([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})',
+        title: 'E-mail должен быть определенного формата, длина не менее 6 и не более 50 символов',
         validation: {
           required: true,
           email: true,
@@ -37,56 +32,60 @@ class Register extends React.Component {
         valid: false,
         touched: false,
         required: true,
+        title: 'Пароль должен содержать символы верхнего регистра (A-Z), нижнего регистра (a-z), и цифры (0-9), длина не менее 6 и не более 50 символов',
         validation: {
           required: true,
-          minLength: 6,
+          password: true,
         },
+        hidePassword: true,
+        eye: true
+      },
+      confirm_password: {
+        value: '',
+        type: 'password',
+        placeholder: 'Повторите пароль',
+        errorMessage: 'Введите корректный пароль',
+        valid: false,
+        touched: false,
+        required: true,
+        title: 'Пароль должен содержать символы верхнего регистра (A-Z), нижнего регистра (a-z), и цифры (0-9), длина не менее 6 и не более 50 символов',
+        validation: {
+          required: true,
+          password: true,
+        },
+        hidePassword: true,
+        eye: true
       },
     },
   };
 
   registerHandler = () => {
-    const {
-      formControls: { email, password },
-    } = this.state;
-    if (email.value.trim() !== '' && password.value.trim() !== '') {
-      this.props.register(email.value, password.value);
+
+    const email = this.state.formControls.email.value.trim();
+    const password = this.state.formControls.password.value.trim();
+    const confirm_password = this.state.formControls.confirm_password.value.trim();
+
+    if (email === '' || password === '' || confirm_password === '') return false;
+
+    if (password === confirm_password) {
+    
+      this.props.register(email, password);
+    } else {
+      alert('Пароли не совпадают. Повторите попытку.');
     }
-  };
+  }
 
   submitHandler = (event) => {
     event.preventDefault();
   };
 
-  validateControl = (value, validation) => {
-    if (!validation) {
-      return true;
-    }
-
-    let isValid = true;
-
-    if (validation.required) {
-      isValid = value.trim() !== '' && isValid;
-    }
-
-    if (validation.email) {
-      isValid = validateEmail(value) && isValid;
-    }
-
-    if (validation.minLength) {
-      isValid = value.length >= validation.minLength && isValid;
-    }
-
-    return isValid;
-  };
-
   onChangeHandler = (event, controlName) => {
-    const formControls = { ...this.state.formControls };
-    const control = { ...formControls[controlName] };
+    const formControls = {...this.state.formControls};
+    const control = {...formControls[controlName]};
 
     control.value = event.target.value;
     control.touched = true;
-    control.valid = this.validateControl(control.value, control.validation);
+    control.valid = validateControl(control.value, control.validation);
 
     formControls[controlName] = control;
 
@@ -102,8 +101,30 @@ class Register extends React.Component {
     });
   };
 
+  onClickHandler = (event, controlName) => {
+
+    const formControls = {...this.state.formControls};
+    const control = {...formControls[controlName]};
+
+    if (controlName === 'password') {
+      control.type === 'text' ? control.type = 'password' : control.type = 'text';
+      control.hidePassword = !control.hidePassword;
+    }
+
+    if (controlName === 'confirm_password') {
+      control.type === 'text' ? control.type = 'password' : control.type = 'text';
+      control.hidePassword = !control.hidePassword;
+    }
+
+    formControls[controlName] = control;
+
+    this.setState({
+      formControls,
+    });
+  };
+
   renderInputs() {
-    const { formControls } = this.state;
+    const {formControls} = this.state;
 
     return Object.keys(formControls).map((controlName, index) => {
       const control = formControls[controlName];
@@ -120,7 +141,10 @@ class Register extends React.Component {
           label={control.label}
           shouldValidate={!!control.validation}
           errorMessage={control.errorMessage}
+          hidePassword={control.hidePassword}
+          eye={control.eye}
           onChange={(event) => this.onChangeHandler(event, controlName)}
+          onClick={(event) => this.onClickHandler(event, controlName)}
         />
       );
     });

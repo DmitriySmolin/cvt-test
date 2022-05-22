@@ -37,7 +37,7 @@ export const actionSetSelectedPage = (selectPage) => {
   };
 };
 
-export const actionAddToFavorite = (char) => {
+export const actionAddToFavorite = (characters, char) => {
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
   localStorage.setItem('favoriteCharacters', JSON.stringify([...favoriteCharacters, char]));
 
@@ -48,6 +48,7 @@ export const actionAddToFavorite = (char) => {
 };
 
 export const actionFavoriteCharactersLocalStorageLoad = () => {
+
   const favoriteCharacters = JSON.parse(localStorage.getItem('favoriteCharacters')) || [];
 
   return {

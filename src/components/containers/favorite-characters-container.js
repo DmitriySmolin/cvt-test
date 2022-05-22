@@ -7,10 +7,12 @@ import {
 } from '../../redux/actions/action-characters';
 import bindActionCreators from 'react-redux/es/utils/bindActionCreators';
 import compose from '../../utils';
-import FavoriteCharactersList from '../favorite-characters-list/favorie-characters-list';
+import FavoriteCharactersList from '../favorite-characters-list/favorite-characters-list';
 
 class FavoriteCharactersContainer extends React.Component {
+
   componentDidMount() {
+
     this.props.favoriteCharactersLocalStorageLoad();
   }
 

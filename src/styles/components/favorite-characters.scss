@@ -1,236 +1,244 @@
 @import "../../styles/variable";
 
 .character-main {
-    .row {
-        --bs-gutter-x: 0rem;
-    }
+  .row {
+    --bs-gutter-x: 0rem;
+  }
 }
 
 .character-card {
-    border-radius: 5px;
-    padding: 0;
+  border-radius: 5px;
+  padding: 0;
 
-    .card-body {
-        min-height: 191px;
-    }
+
+  .card-body {
+    min-height: 191px;
+  }
+
+  + div {
+    height: 0;
+  }
 }
 
 .character-icon {
-    width: 90%;
-    height: 100%;
-    border-radius: 4px 0px 0px 4px;
+  width: 90%;
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
 }
 
 .character-name {
-    font-family: "Montserrat-Bold";
-    font-weight: 700;
-    font-size: 17px;
+  font-family: "Montserrat-Bold";
+  font-weight: 700;
+  font-size: 17px;
 }
 
 .character-race {
-    font-family: Montserrat-Regular;
-    font-weight: 400;
-    font-size: 12px;
-    color: $color6;
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color6;
 }
 
 .character-origin {
-    font-family: Montserrat-Regular;
-    font-weight: 400;
-    font-size: 12px;
-    color: $color6;
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color6;
 }
 
 .character-location {
-    font-family: Montserrat-Regular;
-    font-weight: 400;
-    font-size: 12px;
-    color: $color6;
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color6;
 }
 
 .character-gender {
-    font-family: Montserrat-Regular;
-    font-weight: 400;
-    font-size: 12px;
-    color: $color6;
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color6;
 }
 
 .character-episode {
-    font-family: Montserrat-Regular;
-    font-weight: 400;
-    font-size: 12px;
-    color: $color6;
+  font-family: Montserrat-Regular;
+  font-weight: 400;
+  font-size: 12px;
+  color: $color6;
 }
 
 .character-race-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .character-origin-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .character-location-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .character-gender-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .character-episode-value {
-    font-family: "Montserrat-Medium";
-    font-weight: 500;
-    font-size: 14px;
+  font-family: "Montserrat-Medium";
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .favorite-character-btn {
-    position: relative;
-    width: 0;
-    margin-top: 86px;
-    -moz-user-select: none;
-    -o-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+  position: relative;
+  width: 0;
+  margin-top: 86px;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .disabled {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .status-img {
-    max-width: 5px;
-    max-height: 5px;
+  max-width: 5px;
+  max-height: 5px;
 }
 
-@media (min-width:1440px) {
-    .favorite-character-btn {
-        button {
-            bottom: 295px;
-            right: 22px;
-        }
+@media (min-width: 1440px) {
+  .favorite-character-btn {
+    button {
+      bottom: 295px;
+      right: 22px;
     }
+  }
 }
 
-@media (min-width:1024px) and (max-width:1439px) {
-    .favorite-character-btn {
-        button {
-            bottom: 340px;
-            right: 23px;
-        }
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .favorite-character-btn {
+    button {
+      bottom: 340px;
+      right: 23px;
     }
+  }
 }
 
-@media (min-width:1200px) and (max-width:1439px) {
-    .favorite-character-btn {
-        button {
-            bottom: 302px;
-            right: 22px;
-        }
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .favorite-character-btn {
+    button {
+      bottom: 302px;
+      right: 22px;
     }
+  }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
-    .character-btn {
-        margin-top: 13px;
-    }
+  .character-card {
+    height: 208px;
+  }
+  .character-btn {
+    margin-top: 13px;
+  }
 
-    .character-name {
-        font-size: 16px;
-    }
+  .character-name {
+    font-size: 16px;
+  }
 
-    .character-race-value {
-        font-size: 12px;
-    }
+  .character-race-value {
+    font-size: 12px;
+  }
 
-    .character-origin-value {
-        font-size: 12px;
-    }
+  .character-origin-value {
+    font-size: 12px;
+  }
 
-    .character-location-value {
-        font-size: 12px;
-    }
+  .character-location-value {
+    font-size: 12px;
+  }
 
-    .character-gender-value {
-        font-size: 12px;
-    }
+  .character-gender-value {
+    font-size: 12px;
+  }
 
-    .character-episode-value {
-        font-size: 12px;
-    }
+  .character-episode-value {
+    font-size: 12px;
+  }
 
-    .favorite-character-btn {
-        button {
-            bottom: 320px;
-            right: 23px;
-        }
+  .favorite-character-btn {
+    button {
+      bottom: 320px;
+      right: 23px;
     }
+  }
 }
 
 @media (max-width: 425px) {
-    .character-form {
-        flex-direction: column;
-    }
+  .character-form {
+    flex-direction: column;
+  }
 
-    .character-inputs {
-        flex-direction: column;
+  .character-inputs {
+    flex-direction: column;
 
-        input {
-            margin-top: 0 !important;
-        }
+    input {
+      margin-top: 0 !important;
     }
+  }
 
-    .character-icon {
-        width: 100%;
-    }
+  .character-icon {
+    width: 100%;
+  }
 
-    .card-body {
-        padding: 1rem 1rem;
-    }
+  .card-body {
+    padding: 1rem 1rem;
+  }
 
-    .character-name {
-        text-align: center;
-    }
+  .character-name {
+    text-align: center;
+  }
 
-    .text-xs-center {
-        text-align: center;
-    }
+  .text-xs-center {
+    text-align: center;
+  }
 
-    .mx-sm-2 {
-        margin-left: 0 !important;
-    }
+  .mx-sm-2 {
+    margin-left: 0 !important;
+  }
 
-    .favorite-character-btn {
-        button {
-            bottom: 726px;
-            left: -24px;
-        }
+  .favorite-character-btn {
+    button {
+      bottom: 726px;
+      left: -24px;
     }
+  }
 }
 
-@media (max-width:375px) {
-    .favorite-character-btn {
-        button {
-            bottom: 675px;
-            left: -26px;
-        }
+@media (max-width: 375px) {
+  .favorite-character-btn {
+    button {
+      bottom: 675px;
+      left: -26px;
     }
+  }
 }
 
-@media (max-width:320px) {
-    .favorite-character-btn {
-        button {
-            bottom: 624px;
-            left: -22px;
-        }
+@media (max-width: 320px) {
+  .favorite-character-btn {
+    button {
+      bottom: 624px;
+      left: -33px;
     }
+  }
 }

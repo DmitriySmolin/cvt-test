@@ -6,11 +6,6 @@
   }
 }
 
-.location-body {
-  padding: 1rem 1rem;
-}
-
-
 .location-card {
   width: 100%;
   height: 100%;
@@ -19,6 +14,10 @@
 
   .card-body {
     min-height: 191px;
+  }
+
+  .location-body {
+    padding: 1rem 1rem;
   }
 }
 
@@ -222,13 +221,13 @@
 
   .location-favorite-icon {
     bottom: 135px;
-    right: -374px;
+    right: -350px;
   }
 
   .location-btn {
     button {
       bottom: 135px;
-      right: -192px;
+      right: -182px;
     }
 
     width: 100%;
@@ -259,7 +258,7 @@
   }
 
   .location-favorite-icon {
-    right: -320px;
+    right: -300px;
   }
 }
 
