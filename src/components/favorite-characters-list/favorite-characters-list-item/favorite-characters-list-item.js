@@ -8,7 +8,7 @@ class FavoriteCharactersListItem extends React.Component {
 
     return (
       <div key={id} className="col-md-6 gx-4 gy-2 mb-4 h-auto">
-        <div className="card character-card">
+        <div className="card favorite-character-card">
           <div className="row">
             <div className="col-md-4">
               <img className="character-icon" src={image} alt="card-image"/>
