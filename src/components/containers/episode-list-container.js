@@ -64,7 +64,9 @@ class EpisodesListContainer extends React.Component {
 
     const res = await rickandmortyService.getAllEpisodes(name, episode, currentPage);
 
-    this.props.episodesRequest();
+    //calling these actions results in 429 status code
+    // this.props.episodesRequest();
+
     this.props.setSelectedPage(selectPage);
 
     const episodeCharacters = await rickandmortyService.getEpisodeCharacters(null, name, episode, currentPage);
@@ -77,7 +79,8 @@ class EpisodesListContainer extends React.Component {
   handlePageClick = (data, name, episode) => {
     const { episodesLoad, favoriteEpisodes, episodesRequest, setSelectedPage } = this.props;
 
-    episodesRequest();
+    //calling these actions results in 429 status code
+    // episodesRequest();
 
     let numberPage = data.selected + 1;
     let selectPage = data.selected;

@@ -11,7 +11,7 @@ const ErrorIndicator = () => {
       <div className="col-md-8">
         <img className="error-not-found" src={notFoundImg} alt="error-not-found" />
       </div>
-      <div className="error-indicator-title col-md-8 mt-5">Усп. Кажется вы заблудились. Только без паники!</div>
+      <div className="error-indicator-title col-md-8 mt-5">Упс. Кажется вы заблудились. Только без паники!</div>
       <div className="error-indicator-text col-md-8 mt-3">
         Страница, которую вы ищите не существует, либо была удалена
       </div>
